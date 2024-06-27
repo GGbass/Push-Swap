@@ -3,17 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/05/28 00:02:05 by marvin           ###   ########.fr        #
+#    Updated: 2024/06/27 23:24:58 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 
-SRC = 	./src/*.c \
+SRC = 	./src/lstd_tools.c \
+		./src/main.c \
+#./src/*.c \
 		
 OBJ = $(SRC:.c=.o)
 
@@ -26,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C libft
-	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
+	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap -no-pie
 	
 #bonus: 
 #$(NAMEB): $(OBJB)

@@ -15,11 +15,11 @@
 
 # include "../libft/libft.h"
 
-typedef struct s_list
+typedef struct s_lst
 {
-	int		*content;
-	t_list	*next;
-}			t_list;
+	int				content;
+	struct s_lst	*next;
+}			t_lst;
 
 /*
 #enum e_operation
@@ -37,4 +37,11 @@ typedef struct s_list
 	rrr
 };
  */
+
+
+t_lst	*ft_plstnew(int content);
+void	ft_plstadd_front(t_lst **lst, t_lst *new);
+void	ft_plstadd_back(t_lst **lst, t_lst *new);
+t_lst	*ft_plstlast(t_lst *lst);
+
 #endif
