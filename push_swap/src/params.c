@@ -12,8 +12,53 @@
 
 #include "../include/push_swap.h"
 
+static int	ft_isduplicate(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 1;
+	while(argv[i])
+	{
+		if (argv[i][0])
+		j = i + 1;
+		while(argv[j])
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			{
+				ft_putstr_fd("Error\n", 2);
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+static int	ft_inrange(int number)
+{
+	if (number < INT_MIN || number > INT_MAX)
+		return (1);
+	return (0);
+}
+
 int	ft_params(char **argv)
 {
-	(void)argv;
+	int	i;
+
+	i = 1;
+/* 	if (ft_isduplicate(argv) == 1)
+		return (1); */
+	while(argv[i])
+	{
+		if (ft_inrange(ft_atoi(argv[i])) == 1 || ft_isduplicate(argv) == 1)
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (1);
+		}
+		i++;
+	}
 	return (0);
 }

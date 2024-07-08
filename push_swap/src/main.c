@@ -19,22 +19,18 @@ static void ft_print_list_reverse(t_lst *lst)
 	{
 		last = last->next;
 	}
-	// Step 2: Iterate Backwards and Print Each Node's Content
 	while (last != NULL) 
 	{
 		ft_printf("reverse\n");
-		ft_printf("%d\n", last->content); // Assuming 'content' is an int
+		ft_printf("%d\n", last->content);
 		last = last->prev;
 	}
 }
 
-static int	argv_checker(int argc)
+static int	argv_checker(int argc, char **argv)
 {
-	if (argc <= 2 && argc != 1)
-	{
-		ft_putstr_fd("Error\n", 2);
+	if (argc <= 2 || ft_params(argv) == 1)
 		return (1);
-	}
 	return (0);
 }
 
@@ -44,8 +40,8 @@ int	main(int argc, char **argv)
 	t_lst	*temp;
 	int		i;
 
-	if (argv_checker(argc) != 0)
-		return(0);
+	if (argv_checker(argc, argv) == 1)
+		return(1);
 	lst = (t_lst *)malloc(sizeof(t_lst) * argc);
 	if (!lst)
 		return (ft_putstr_fd("Error\n", 2), 0);
