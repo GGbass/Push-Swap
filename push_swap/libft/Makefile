@@ -10,9 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
+# Color Aliases
+DEFAULT = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
 
-
-FILES = ft_strchr.c \
+SRC =	ft_strchr.c \
 		ft_strlen.c \
 		ft_strrchr.c \
 		ft_bzero.c \
@@ -66,6 +75,40 @@ FILES = ft_strchr.c \
 		./printf/ft_unprintf.c \
 		./printf/ft_unsigned_int.c \
 
+
+
+OBJS = $(SRC:.c=.o)
+CURRENT_FILE = 1
+TOTAL_FILES = $(words $(SRC))
+COMPILER = gcc
+CFLAGS = -Wall -Wextra -Werror 
+
+NAME = libft.a
+
+
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+
+%.o: %.c
+	@printf "\033[KCompiling $<... $(shell echo $$(($(CURRENT_FILE) * 100 / $(TOTAL_FILES))))%%\r"
+	@$(COMPILER) $(CFLAGS) -c $< -o $@
+	$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE) + 1))))
+	
+#bonus: $(OBJS_BONUS)
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: clean fclean re all 
+
 #BONUS = ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
@@ -75,31 +118,7 @@ FILES = ft_strchr.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-
-
-OBJS = $(FILES:.c=.o)
-COMPILER = gcc
-CFLAGS = -Wall -Wextra -Werror 
-
-#OBJS_BONUS = $(BONUS:.c=.o)
-NAME = libft.a
-
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-
-#bonus: $(OBJS_BONUS)
-#	ar rc $(NAME) $(OBJS_BONUS)
-
-clean:
-	rm -f $(OBJS)
-#	rm -f $(OBJS_BONUS)
-
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
-
-.PHONY: clean fclean re all 
 #bonus
+#OBJS_BONUS = $(BONUS:.c=.o)
+#	ar rc $(NAME) $(OBJS_BONUS)
+#	rm -f $(OBJS_BONUS)

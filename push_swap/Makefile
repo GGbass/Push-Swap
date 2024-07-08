@@ -3,33 +3,50 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/06/27 23:24:58 by gongarci         ###   ########.fr        #
+#    Updated: 2024/07/08 15:54:26 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# Color Aliases
+DEFAULT = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
+
 
 NAME = push_swap
 
 
-SRC = 	./src/lstd_tools.c \
+SRC =	./src/lstd_tools.c \
+		./src/params.c \
 		./src/main.c \
-#./src/*.c \
 		
 OBJ = $(SRC:.c=.o)
 
 #OBJB = $(SRCB:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra 
 CC = gcc
 
-all: $(NAME)
+all: $(NAME) show_progreesss
 
 $(NAME): $(OBJ)
-	@make -C libft
+	@make -s -C libft 
 	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap -no-pie
 	
+show_progreesss:
+		@for file in $(SRC); do \
+			echo "$(GREEN)Compiling $$file "; \
+		done; \
+		echo "Compiled: 100%$(DEFAULT)"; \
 #bonus: 
 #$(NAMEB): $(OBJB)
 #	@make -C libft
@@ -38,15 +55,15 @@ $(NAME): $(OBJ)
 clean:
 		rm -f $(NAME)
 #rm -f $(NAMEB)
-		@make fclean -C libft
+		@make fclean -s -C libft
 	
 fclean: clean
 	rm -f $(OBJ)
 #rm -f $(OBJB)
-	@make clean -C libft
+	@make  clean -s -C libft
 
 re: fclean all
-	rm -f $(NAME)
+#rm -f $(NAME)
 
 #re_bonus: fclean bonus
 #	rm -f $(NAMEB)

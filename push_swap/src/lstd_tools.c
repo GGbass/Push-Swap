@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lstd_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 22:40:58 by gongarci          #+#    #+#             */
-/*   Updated: 2024/06/27 23:43:51 by gongarci         ###   ########.fr       */
+/*   Created: 2024/06/28 19:01:08 by marvin            #+#    #+#             */
+/*   Updated: 2024/06/28 19:01:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_lst	*ft_plstnew(int content)
+t_lst	*ft_lstnew_node(int content)
 {
 	t_lst	*new_content;
 
@@ -21,8 +21,10 @@ t_lst	*ft_plstnew(int content)
 		return (NULL);
 	new_content->content = content;
 	new_content->next = NULL;
+	new_content->prev = NULL;
 	return (new_content);
 }
+
 /*int	main(void)
 {
 	t_list	*head;
@@ -46,7 +48,7 @@ t_lst	*ft_plstnew(int content)
 }*/
 
 
-void	ft_plstadd_front(t_lst **lst, t_lst *new)
+void	ft_nodelstadd_front(t_lst **lst, t_lst *new)
 {
 	if (!lst || !new)
 		return ;
@@ -76,7 +78,7 @@ void	ft_plstadd_front(t_lst **lst, t_lst *new)
 	return (0);
 }*/
 
-t_lst	*ft_plstlast(t_lst *lst)
+t_lst	*ft_nodelstlast(t_lst *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -85,16 +87,41 @@ t_lst	*ft_plstlast(t_lst *lst)
 	return (lst);
 }
 
-void	ft_plstadd_back(t_lst **lst, t_lst *new)
+void	ft_nodelstadd_back(t_lst **lst, t_lst *new_node)
 {
 	t_lst	*last_node;
 
 	if (!*lst)
-		*lst = new;
+		*lst = new_node;
 	else
 	{
-		last_node = ft_plstlast(*lst);
-		last_node->next = new;
+		last_node = ft_nodelstlast(*lst);
+		last_node->next = new_node;
+	}
+}
+
+void add_node_to_end(t_lst **head, int new_content)
+{
+	t_lst *new_node = malloc(sizeof(t_lst));
+	t_lst *last = *head;
+	if (!new_node) return; // Always check for successful allocation
+
+	new_node->content = new_content;
+	new_node->next = NULL; // As it will be the last node
+	new_node->prev = NULL; // This will be updated if it's not the first node
+
+	if (*head == NULL)
+	{
+		*head = new_node; // List was empty, new node is now the head
+	}
+	else
+	{
+		while (last->next != NULL)
+		{
+			last = last->next; // Navigate to the last node
+		}
+		last->next = new_node;
+		new_node->prev = last; // Set the new node's prev pointer to the last node
 	}
 }
 
