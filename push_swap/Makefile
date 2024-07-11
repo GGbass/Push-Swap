@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/07/08 15:54:26 by marvin           ###   ########.fr        #
+#    Updated: 2024/07/11 22:03:13 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,7 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-
 NAME = push_swap
-
 
 SRC =	./src/lstd_tools.c \
 		./src/params.c \
@@ -33,7 +31,7 @@ OBJ = $(SRC:.c=.o)
 
 #OBJB = $(SRCB:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address,leak
 CC = gcc
 
 all: $(NAME) show_progreesss

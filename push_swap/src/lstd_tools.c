@@ -102,10 +102,10 @@ void	ft_nodelstadd_back(t_lst **lst, t_lst *new_node)
 
 void add_node_to_end(t_lst **head, int new_content)
 {
-	t_lst *new_node = malloc(sizeof(t_lst));
-	t_lst *last = *head;
-	if (!new_node) return; // Always check for successful allocation
-
+	t_lst	*new_node = malloc(sizeof(t_lst));
+	t_lst	*last = *head;
+	if (!new_node)
+		return ;
 	new_node->content = new_content;
 	new_node->next = NULL; // As it will be the last node
 	new_node->prev = NULL; // This will be updated if it's not the first node
@@ -116,44 +116,10 @@ void add_node_to_end(t_lst **head, int new_content)
 	}
 	else
 	{
-		while (last->next != NULL)
-		{
-			last = last->next; // Navigate to the last node
-		}
+		//ft_nodelstlast(last);
+		/* while (last->next != NULL)
+			last = last->next; */
 		last->next = new_node;
 		new_node->prev = last; // Set the new node's prev pointer to the last node
 	}
 }
-
-/*int	main()
-{
-	t_list	*head;
-	t_list	*node1;
-	t_list	*node2;
-	t_list	*node3;
-
-	node1 = ft_lstnew(ft_strdup("node1"));
-	ft_lstadd_front(&head, node1);
-	node2 = ft_lstnew(ft_strdup("node2"));
-	ft_lstadd_front(&head, node2);
-	node3 = ft_lstnew(ft_strdup("node3"));
-	ft_lstadd_front(&head, node3);
-
-	while (head != NULL && head != node1)
-	{
-		ft_lstadd_back(&head, node3);
-		printf("%s\n", head->content);
-		head = head->next;
-
-		ft_lstadd_back(&head, node2);
-		printf("%s\n", head->content);
-		head = head->next;
-
-		ft_lstadd_back(&head, node1);
-		printf("%s\n", head->content);
-		head = head->next;
-	}
-
-	printf("nada\n");
-	return (0);
-}*/
