@@ -21,10 +21,10 @@ static void	ft_print_list_reverse(t_lst *lst)
 	}
 	while (last)
 	{
+		if (last == NULL)
+			break;
 		ft_printf("reverse : %d\n", last->content);
 		last = last->prev;
-		if (last->prev == NULL)
-			break;
 	}
 }
 
@@ -38,32 +38,37 @@ static int	argv_checker(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_lst	*lst;
-	//t_lst	*temp;
 	int		i;
+	char	**aux2;
+	char	*aux;
 
 	i = 1;
-	lst = NULL;
-	if (argv_checker(argc, argv) == 1)
-		return(1);
-	lst = (t_lst *)malloc(sizeof(t_lst));
-	if (!lst)
-		return (ft_putstr_fd("Error allocating memory\n", 2), 0);
-	lst->content = ft_atoi(argv[i]);
-	while(++i <= argc - 1)
+	aux = ft_strdup("");
+	while (argv[i] != NULL)
 	{
-		ft_printf("content : %d\n", lst->content);
-		add_node_to_end(&lst, ft_atoi(argv[i]));
-		lst = lst->next;
+		aux = ft_strjoin(aux, argv[i]);
+		aux = ft_strjoin(aux, " ");
+		i++;
 	}
-	ft_printf("here 1 \n");
+	aux2 = ft_split(aux, ' ');
+	if (argv_checker(argc, aux2) == 1)
+		return(1);
+	lst = NULL;
+	i = 0;
+	while(aux2[i] != NULL)
+	{
+		ft_printf("linea ;%s\n", aux2[i]);
+		i++;
+	}
+	i = 0;
+	while(aux2[i] != NULL)
+	{
+		add_node_to_end(&lst, ft_atoi(aux2[i]));
+		ft_printf("content : %d\n", lst->content);
+		//lst = lst->next;
+		i++;
+	}
 	ft_printf("Value of i: %d\n", i);
-	//temp = lst;
-	/*while (temp->next != NULL)
-	 {
-		temp->next->prev = temp->prev;
-		ft_printf("prev : %d\n", temp->prev->content);
-		temp = temp->next;
-	} */
 	ft_print_list_reverse(lst);
 	while (lst)
 	{

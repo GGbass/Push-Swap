@@ -21,51 +21,48 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-SRC =	ft_strchr.c \
-		ft_strlen.c \
-		ft_strrchr.c \
-		ft_bzero.c \
-		ft_strlcpy.c \
-		ft_isalpha.c \
-		ft_isdigit.c \
-		ft_isalnum.c \
-		ft_isascii.c \
-		ft_isprint.c \
-		ft_toupper.c \
-		ft_tolower.c \
-		ft_strncmp.c \
-		ft_strnstr.c \
-		ft_memcpy.c \
-		ft_memset.c \
-		ft_strlcat.c \
-		ft_memmove.c \
-		ft_memcmp.c \
-		ft_memchr.c \
-		ft_atoi.c \
-		ft_calloc.c \
-		ft_strdup.c \
-		ft_substr.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_split.c \
-		ft_itoa.c \
-		ft_strmapi.c \
-		ft_striteri.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-		get_next_line_utils.c \
-		get_next_line.c \
+SRC =	./strings/ft_atoi.c \
+		./strings/ft_itoa.c \
+		./strings/ft_strchr.c \
+		./strings/ft_strlen.c \
+		./strings/ft_strrchr.c \
+		./strings/ft_strlcpy.c \
+		./strings/ft_strncmp.c \
+		./strings/ft_strnstr.c \
+		./strings/ft_strlcat.c \
+		./strings/ft_strdup.c \
+		./strings/ft_substr.c \
+		./strings/ft_strjoin.c \
+		./strings/ft_strtrim.c \
+		./strings/ft_split.c \
+		./strings/ft_strmapi.c \
+		./ft_is/ft_isalpha.c \
+		./ft_is/ft_isdigit.c \
+		./ft_is/ft_isalnum.c \
+		./ft_is/ft_isascii.c \
+		./ft_is/ft_isprint.c \
+		./ft_is/ft_toupper.c \
+		./ft_is/ft_tolower.c \
+		./memory/ft_bzero.c \
+		./memory/ft_memcpy.c \
+		./memory/ft_memset.c \
+		./memory/ft_memmove.c \
+		./memory/ft_memcmp.c \
+		./memory/ft_memchr.c \
+		./memory/ft_calloc.c \
+		./put/ft_putchar_fd.c \
+		./put/ft_putstr_fd.c \
+		./put/ft_putendl_fd.c \
+		./put/ft_putnbr_fd.c \
+		./list/ft_lstnew.c \
+		./list/ft_lstadd_front.c \
+		./list/ft_lstsize.c \
+		./list/ft_lstlast.c \
+		./list/ft_lstadd_back.c \
+		./list/ft_lstdelone.c \
+		./list/ft_lstclear.c \
+		./list/ft_lstiter.c \
+		./list/ft_lstmap.c \
 		./printf/ft_putnbr.c \
 		./printf/ft_printf.c \
 		./printf/ft_putchar.c \
@@ -74,8 +71,9 @@ SRC =	ft_strchr.c \
 		./printf/ft_string.c \
 		./printf/ft_unprintf.c \
 		./printf/ft_unsigned_int.c \
-
-
+		ft_striteri.c \
+		get_next_line_utils.c \
+		get_next_line.c \
 
 OBJS = $(SRC:.c=.o)
 CURRENT_FILE = 1
