@@ -6,17 +6,17 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 11:54:47 by gongarci          #+#    #+#             */
-/*   Updated: 2024/07/15 20:18:22 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/07/15 21:19:20 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	negative;
-	int	result;
+	int			i;
+	int			negative;
+	long int	result;
 
 	i = 0;
 	negative = 1;

@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:40:01 by gongarci          #+#    #+#             */
-/*   Updated: 2024/06/27 22:21:43 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/07/15 21:19:55 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	*ft_int_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t bytes_copied);
 int		ft_memcmp(const void *dest, const void *src, size_t n_bytes);
 void	*ft_memchr(const void *s, int c, size_t n_bytes);
-int		ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *str);
 void	*ft_calloc(size_t count, size_t size);

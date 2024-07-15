@@ -36,7 +36,7 @@ static int	ft_isduplicate(char **argv)
 	return (0);
 }
 
-static int	ft_inrange(int number)
+static int	ft_inrange(long int number)
 {
 	if (number <= INT_MIN || number >= INT_MAX)
 		return (ft_putstr_fd("Error out of range \n", 2), 1);
@@ -47,7 +47,7 @@ int	ft_params(char **argv)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while(argv[i])
 	{
 		if (ft_inrange(ft_atoi(argv[i])) == 1 || ft_isduplicate(argv) == 1)
