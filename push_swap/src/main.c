@@ -46,6 +46,11 @@ int	main(int argc, char **argv)
 	aux = ft_strdup("");
 	while (argv[i] != NULL)
 	{
+		if (ft_empty(argv[i]) == 1)
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
 		aux = ft_strjoin(aux, argv[i]);
 		aux = ft_strjoin(aux, " ");
 		i++;
@@ -65,7 +70,6 @@ int	main(int argc, char **argv)
 	{
 		add_node_to_end(&lst, ft_atoi(aux2[i]));
 		ft_printf("content : %d\n", lst->content);
-		//lst = lst->next;
 		i++;
 	}
 	ft_printf("Value of i: %d\n", i);

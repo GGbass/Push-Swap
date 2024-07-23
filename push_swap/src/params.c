@@ -12,6 +12,11 @@
 
 #include "../include/push_swap.h"
 
+/* static int	double_sign(char *argv)
+{
+	return (0);
+} */
+
 static int	ft_isduplicate(char **argv)
 {
 	int	i;
@@ -48,7 +53,7 @@ int	ft_params(char **argv)
 	int	i;
 
 	i = 0;
-	while(argv[i])
+	while(argv[i] != NULL)
 	{
 		if (ft_inrange(ft_atoi(argv[i])) == 1 || ft_isduplicate(argv) == 1)
 		{

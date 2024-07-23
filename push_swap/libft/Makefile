@@ -22,6 +22,7 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 SRC =	./strings/ft_atoi.c \
+		./strings/ft_empty.c \
 		./strings/ft_itoa.c \
 		./strings/ft_strchr.c \
 		./strings/ft_strlen.c \

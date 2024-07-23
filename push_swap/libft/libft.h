@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:40:01 by gongarci          #+#    #+#             */
-/*   Updated: 2024/07/15 21:19:55 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/07/23 20:58:18 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_tolower(int i);
 int		ft_isprint(int i);
 /*<string.h>*/
 int		ft_strlen(const char *str);
+int	ft_empty(char *argv);
 int		ft_len(char	**array);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
