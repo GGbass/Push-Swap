@@ -34,7 +34,6 @@ static int	argv_checker(int argc, char **argv)
 		return (1);
 	return (0);
 }
-// hola gabo
 int	main(int argc, char **argv)
 {
 	t_lst	*lst;
@@ -63,6 +62,7 @@ int	main(int argc, char **argv)
 	while(aux2[i] != NULL)
 	{
 		add_node_to_end(&lst, ft_atol(aux2[i]));
+		//
 		ft_printf("content : %d\n", lst->content);
 		i++;
 	}
