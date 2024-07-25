@@ -6,7 +6,7 @@
 #    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/07/25 23:00:51 by gongarci         ###   ########.fr        #
+#    Updated: 2024/07/25 23:08:59 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ re: fclean all
 
 git:
 	git add .
-	git commit -m "testing"
+	git commit
 	git push
 
 .PHONY: clean fclean re all 
