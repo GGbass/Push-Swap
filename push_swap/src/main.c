@@ -34,7 +34,7 @@ static int	argv_checker(int argc, char **argv)
 		return (1);
 	return (0);
 }
-//testing
+// hola gabo
 int	main(int argc, char **argv)
 {
 	t_lst	*lst;
