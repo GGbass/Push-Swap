@@ -6,7 +6,7 @@
 #    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/07/25 23:08:59 by gongarci         ###   ########.fr        #
+#    Updated: 2024/07/26 00:24:24 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ show_progreesss:
 #	@make -C libft
 #	$(CC) $(CFLAGS) $(OBJB) -L libft -lft -o bonus
 
-	
+#hola
 clean:
 		rm -f $(NAME)
 #rm -f $(NAMEB)
