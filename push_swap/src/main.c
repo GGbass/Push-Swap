@@ -66,7 +66,6 @@ int	main(int argc, char **argv)
 		ft_printf("content : %d\n", lst->content);
 		i++;
 	}
-	/* ft_printf("Value of i: %d\n", i); */
 	ft_print_list_reverse(lst);
 	while (lst)
 	{

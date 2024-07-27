@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 11:54:47 by gongarci          #+#    #+#             */
-/*   Updated: 2024/07/25 23:32:55 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/07/27 21:46:20 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = (str[i] - '0') + (result * 10);
-		if (result * negative > INT_MAX)
-			printf("BEYOND\n");
+		/* if (result * negative > INT_MAX)
+			printf("BEYOND\n"); */
 		i++;
 	}
 	return (result * negative);
