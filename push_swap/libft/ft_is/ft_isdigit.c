@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 08:40:56 by gongarci          #+#    #+#             */
-/*   Updated: 2024/07/27 21:00:05 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:24:51 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_isdigit(int i)
 {
-	ft_printf("%d\n", i);
 	if (i >= '0' && i <= '9')
 		return (1);
 	return (0);

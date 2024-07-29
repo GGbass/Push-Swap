@@ -14,26 +14,16 @@
 
 static int	check_sign(char *argv)
 {
-	//char	*substr;
-	
-	if (ft_strchr(argv, '-'))
-		//printf("HELLO\t%u\t%d\n", *ft_strchr(argv, '-'), ft_isdigit(*(ft_strchr(argv, '-') + 1)));
+	if (ft_strchr(argv, '-') || ft_strchr(argv , '+'))
 		if (!ft_isdigit(*(ft_strchr(argv, '-') + 1)))
 			return (ft_printf("err -\n"), 1);
 	if (ft_strchr(argv, '+'))
-		//printf("HELLO\t%u\t%d\n", *ft_strchr(argv, '-'), ft_isdigit(*(ft_strchr(argv, '-') + 1)));
 		if (!ft_isdigit(*(ft_strchr(argv, '+') + 1)))
 			return (ft_printf("err +\n"), 1);
-	/* substr = ft_substr(argv, 0, ft_strlen(argv));
-	printf("SUBSTR\t%s\n", substr);
-	if (ft_strchr(substr, '-')  || ft_strchr(substr, '+'))
-	{
-		free(substr);
-		return (1);
-	}
-	free(substr); */
 	return (0);
 }
+		//printf("HELLO\t%u\t%d\n", *ft_strchr(argv, '-'), ft_isdigit(*(ft_strchr(argv, '-') + 1)));
+		//printf("HELLO\t%u\t%d\n", *ft_strchr(argv, '-'), ft_isdigit(*(ft_strchr(argv, '-') + 1)));
 
 static int	ft_isduplicate(char **argv)
 {
@@ -44,7 +34,7 @@ static int	ft_isduplicate(char **argv)
 	j = 0;
 	while(argv[i])
 	{
-		ft_printf("%d\n", argv[i]);
+		//ft_printf("%s\n", argv[i]);
 		if (check_sign(argv[i]) == 1)
 			return (ft_putstr_fd("Error isdigit d\n", 2), 1);
 		if (!ft_isdigit(ft_atol(argv[i]) + 48))
