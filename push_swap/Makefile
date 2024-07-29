@@ -6,7 +6,7 @@
 #    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/07/27 21:45:58 by gongarci         ###   ########.fr        #
+#    Updated: 2024/07/29 20:59:31 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJ = $(SRC:.c=.o)
 
 #OBJB = $(SRCB:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra #-g3 -fsanitize=address,leak
+CFLAGS = -Wall -Werror -Wextra -g3 #-fsanitize=address,leak
 CC = gcc
 
 all: $(NAME) show_progreesss

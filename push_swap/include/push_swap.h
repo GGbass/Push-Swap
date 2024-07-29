@@ -45,5 +45,6 @@ void	ft_nodelstadd_back(t_lst **lst, t_lst *new_node);
 t_lst	*ft_nodelstlast(t_lst *lst);
 int		ft_params(char **argv);
 void	add_node_to_end(t_lst **head, int new_content);
+int	check_sign(char *argv);
 
 #endif
