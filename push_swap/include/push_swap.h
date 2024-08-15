@@ -22,8 +22,7 @@ typedef struct s_lst
 	struct s_lst	*prev;
 }			t_lst;
 
-/*
-#enum e_operation
+enum e_operation
 {
 	sa,
 	sb,
@@ -37,7 +36,6 @@ typedef struct s_lst
 	rrb,
 	rrr
 };
- */
 
 t_lst	*ft_lstnew_node(int content);
 void	ft_nodelstadd_front(t_lst **lst, t_lst *new);
@@ -46,5 +44,6 @@ t_lst	*ft_nodelstlast(t_lst *lst);
 int		ft_params(char **argv);
 void	add_node_to_end(t_lst **head, int new_content);
 int	check_sign(char *argv);
+void	swap_a(t_list *lst);
 
 #endif

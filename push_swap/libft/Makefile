@@ -45,6 +45,7 @@ SRC =	./strings/ft_atoi.c \
 		./ft_is/ft_isprint.c \
 		./ft_is/ft_toupper.c \
 		./ft_is/ft_tolower.c \
+		./ft_is/ft_blank.c \
 		./memory/ft_bzero.c \
 		./memory/ft_memcpy.c \
 		./memory/ft_memset.c \

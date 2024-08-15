@@ -6,7 +6,7 @@
 #    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/07/29 20:59:31 by gongarci         ###   ########.fr        #
+#    Updated: 2024/08/15 15:27:26 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ WHITE = \033[0;97m
 
 NAME = push_swap
 
-SRC =	./src/lstd_tools.c \
+SRC =	./src/moves_a.c \
+		./src/lstd_tools.c \
 		./src/params.c \
 		./src/main.c \
 		
@@ -31,7 +32,7 @@ OBJ = $(SRC:.c=.o)
 
 #OBJB = $(SRCB:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra -g3 #-fsanitize=address,leak
+CFLAGS = -Wall -Werror -Wextra #-g3 -fsanitize=address,leak
 CC = gcc
 
 all: $(NAME) show_progreesss

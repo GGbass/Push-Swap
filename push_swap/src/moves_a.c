@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   moves_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 12:29:09 by gongarci          #+#    #+#             */
-/*   Updated: 2024/08/15 14:59:58 by gongarci         ###   ########.fr       */
+/*   Created: 2024/08/15 13:00:03 by gongarci          #+#    #+#             */
+/*   Updated: 2024/08/15 15:31:26 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../include/push_swap.h"
 
-int	ft_isalpha(int i)
+/* void	swap_a(t_list *lst)
 {
-	if (('a' <= i && i <= 'z' ) || ('A' <= i && i <= 'Z'))
-		return (1);
-	return (0);
-}
+	t_list	*tmp;
+
+	tmp = lst->content;
+	lst->content = lst->next->content;
+	lst->next->content = tmp;
+	return ;
+} */

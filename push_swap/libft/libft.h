@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:40:01 by gongarci          #+#    #+#             */
-/*   Updated: 2024/07/25 22:45:57 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/08/15 13:32:00 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_isascii(int i);
 int		ft_toupper(int i);
 int		ft_tolower(int i);
 int		ft_isprint(int i);
+int		ft_blank(int c);
 /*<string.h>*/
 int		ft_strlen(const char *str);
 int	ft_empty(char *argv);
