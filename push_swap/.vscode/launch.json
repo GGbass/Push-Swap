@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": false,
-      "cwd": "/home/gongarci/Documents/Cursus/Projects/push_swap/push_swap/src",
-      "program": "/home/gongarci/Documents/Cursus/Projects/push_swap/push_swap/src/build/Debug/outDebug",
+      "externalConsole": true,
+      "cwd": "/Ubuntu/home/gonzo/push_swap/push_swap/src",
+      "program": "/Ubuntu/home/gonzo/push_swap/push_swap/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

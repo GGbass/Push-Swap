@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/08/15 15:27:26 by gongarci         ###   ########.fr        #
+#    Updated: 2024/08/16 14:55:00 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,6 @@ show_progreesss:
 #	@make -C libft
 #	$(CC) $(CFLAGS) $(OBJB) -L libft -lft -o bonus
 
-#hola
 clean:
 		rm -f $(NAME)
 #rm -f $(NAMEB)

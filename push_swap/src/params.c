@@ -12,6 +12,29 @@
 
 #include "../include/push_swap.h"
 
+int	ft_isduplicate(int **numbers, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if ( !numbers || !*numbers)
+		return (ft_putstr_fd("Error\n", 2), 1);
+	while(i < len)
+	{
+		j = i + 1;
+		while(j < len)
+		{
+			if ((*numbers)[i] == (*numbers)[j])
+				return (ft_putstr_fd("Error Duplicated\n", 2), 1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	check_sign(char *string)
 {
 	int	i;

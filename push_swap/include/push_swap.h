@@ -17,9 +17,8 @@
 
 typedef struct s_lst
 {
-	int				content;
+	int				value;
 	struct s_lst	*next;
-	struct s_lst	*prev;
 }			t_lst;
 
 enum e_operation
@@ -36,14 +35,20 @@ enum e_operation
 	rrb,
 	rrr
 };
-
-t_lst	*ft_lstnew_node(int content);
-void	ft_nodelstadd_front(t_lst **lst, t_lst *new);
-void	ft_nodelstadd_back(t_lst **lst, t_lst *new_node);
+t_lst	*new_node(int value);
 t_lst	*ft_nodelstlast(t_lst *lst);
+void	ft_nodelstadd_front(t_lst **lst, t_lst *new);
+void	add_node_to_end(t_lst **head, int value);
+void	add(t_lst **lst, int value);
+void	ft_nodelstadd_back(t_lst **lst, t_lst *new_node);
+/*	check arguments	*/
 int		ft_params(char **argv);
-void	add_node_to_end(t_lst **head, int new_content);
-int	check_sign(char *argv);
-void	swap_a(t_list *lst);
+int		check_sign(char *argv);
+int		ft_isduplicate(int **numbers, int len);
+/*	movements	*/
+void	swap_a(t_lst *lst);
+void	swap_b(t_lst *lst);
+void	push_a(t_lst **stack_a, t_lst **stack_b);
+void	push_b(t_lst **stack_b, t_lst **stack_a);
 
 #endif
