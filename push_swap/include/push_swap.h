@@ -46,9 +46,10 @@ int		ft_params(char **argv);
 int		check_sign(char *argv);
 int		ft_isduplicate(int **numbers, int len);
 /*	movements	*/
-void	swap_a(t_lst *lst);
-void	swap_b(t_lst *lst);
+void	swap_a(t_lst **stack_a);
+void	swap_b(t_lst **stack_b);
 void	push_a(t_lst **stack_a, t_lst **stack_b);
 void	push_b(t_lst **stack_b, t_lst **stack_a);
+void	rotate_a(t_lst **stack_a);
 
 #endif

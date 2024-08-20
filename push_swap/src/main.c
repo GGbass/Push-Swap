@@ -17,11 +17,13 @@ static void	print_list(t_lst *stack_a)
 	t_lst *current;
 
 	current = stack_a;
-	while(current)
+	if (!current)
+		return ;
+	if (current->next != NULL)
 	{
-		printf("print_list %d\n", current->value);
-		current = current->next;
+		print_list(current->next);
 	}
+	printf("print_list %d\n", current->value);
 }
 
 static int	argv_checker(int argc, char **argv, int **numbers)
@@ -89,6 +91,17 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	while(i < len)
 		add(&stack_a, numbers[i++]);
+	print_list(stack_a);
+	swap_a(&stack_a);
+	printf("\n\n");
+	// rotate_a(&stack_a);
+	print_list(stack_a);
+	push_b(&stack_b, &stack_a);
+	push_b(&stack_b, &stack_a);
+	push_b(&stack_b, &stack_a);
+	printf("imprimiendo lista a\n");
+	print_list(stack_a);
+	printf("imprimiendo lista b \n");
 	print_list(stack_b);
 	while (stack_a)
 	{
