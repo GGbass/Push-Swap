@@ -92,22 +92,12 @@ int	main(int argc, char **argv)
 	while(i < len)
 		add(&stack_a, numbers[i++]);
 	print_list(stack_a);
-	swap_a(&stack_a);
-	printf("\n\n");
-	// rotate_a(&stack_a);
+	rotate_a(&stack_a);
+	printf("after ra \n\n");
 	print_list(stack_a);
-	push_b(&stack_b, &stack_a);
-	push_b(&stack_b, &stack_a);
-	push_b(&stack_b, &stack_a);
-	printf("imprimiendo lista a\n");
+	reverse_rotate_a(&stack_a);
+	printf("after reverse ra \n\n");
 	print_list(stack_a);
-	printf("imprimiendo lista b \n");
-	print_list(stack_b);
-	while (stack_a)
-	{
-		t_lst *next = stack_a->next;
-		free(stack_a);
-		stack_a = next;
-	}
+	free_stacks(&stack_a, &stack_b);
 	return (0);
 }

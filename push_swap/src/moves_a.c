@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:00:03 by gongarci          #+#    #+#             */
-/*   Updated: 2024/08/20 15:55:09 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/21 15:24:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	swap_a(t_lst **stack_a)
 	prev->next = head->next;
 	head->next->next = head;
 	head->next = NULL;
-	ft_printf("sa");
+	ft_printf("sa\n");
 }
 
 void	swap_b(t_lst **stack_b)
@@ -48,7 +48,7 @@ void	swap_b(t_lst **stack_b)
 	prev->next = head->next;
 	head->next->next = head;
 	head->next = NULL;
-	ft_printf("sb");
+	ft_printf("sb\n");
 }
 
 void	push_a(t_lst **stack_a, t_lst **stack_b)
@@ -108,51 +108,69 @@ void	push_b(t_lst **stack_b, t_lst **stack_a)
 	}
 }
 /*first element becomes 0 22 335 the last one*/
+
 void	rotate_a(t_lst **stack_a)
 {
-	t_lst	*last;
+	t_lst	*prev;
 	t_lst	*tmp;
-	t_lst	*first;
 
 	if (!(*stack_a) || (*stack_a)->next == NULL)
 		return ;
-	if ((*stack_a)->next->next == NULL)
+	tmp = *stack_a;
+	prev = *stack_a;
+	while (tmp->next != NULL)
 	{
-		tmp = *stack_a;
-		tmp->next = NULL;
-		(*stack_a)->next = tmp;
+		prev = tmp;
+		tmp = tmp->next;
 	}
-	else
-	{
-		first = *stack_a;
-		tmp = *stack_a;
-		while (tmp->next->next != NULL)
-			tmp = tmp->next;
-		last = tmp->next;
-		tmp->next = first;
-		last->next = first->next;
-		first->next = NULL;
-		*stack_a = last;
-	}
+	prev->next = NULL;
+	tmp->next = *stack_a;
+	*stack_a = tmp;
 	printf("ra\n");
 }
 
-/* void	reverse_rotate(t_lst **stack_a)
+void	rotate_b(t_lst **stack_b)
 {
-	t_lst	*last;
+	t_lst	*prev;
 	t_lst	*tmp;
-	t_lst	*first;
+
+	if (!(*stack_b) || (*stack_b)->next == NULL)
+		return ;
+	tmp = *stack_b;
+	prev = *stack_b;
+	while (tmp->next != NULL)
+	{
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	prev->next = NULL;
+	tmp->next = *stack_b;
+	*stack_b = tmp;
+	printf("rb\n");
+}
+
+void	reverse_rotate_a(t_lst **stack_a)
+{
+	t_lst	*tmp;
+	t_lst	*head;
 
 	if (!(*stack_a) || (*stack_a)->next == NULL)
 		return ;
-	if ((*stack_a)->next->next == NULL)
+	head = *stack_a;
+	tmp = head;
+	if (tmp->next->next == NULL)
 	{
-		tmp = *stack_a;
-		tmp->next = NULL;
-		(*stack_a)->next = tmp;
+		head->next = NULL;
+		tmp->next = head;
+		return ;
 	}
 	else
 	{
-		
+		while(tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = head;
+		*stack_a = (*stack_a)->next;
+		head->next = NULL;
 	}
-} */
+	printf("rra\n");
+}

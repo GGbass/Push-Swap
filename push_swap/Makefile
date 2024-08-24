@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/08/16 14:55:00 by marvin           ###   ########.fr        #
+#    Updated: 2024/08/22 19:04:11 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ WHITE = \033[0;97m
 
 NAME = push_swap
 
-SRC =	./src/moves_a.c \
+SRC =	./src/free_stacks.c \
+		./src/moves_a.c \
 		./src/lstd_tools.c \
 		./src/params.c \
 		./src/main.c \

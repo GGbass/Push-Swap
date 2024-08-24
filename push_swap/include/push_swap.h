@@ -51,5 +51,7 @@ void	swap_b(t_lst **stack_b);
 void	push_a(t_lst **stack_a, t_lst **stack_b);
 void	push_b(t_lst **stack_b, t_lst **stack_a);
 void	rotate_a(t_lst **stack_a);
-
+void	rotate_b(t_lst **stack_b);
+void	reverse_rotate_a(t_lst **stack_a);
+void	free_stacks(t_lst **stack_a, t_lst **stack_b);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:40:01 by gongarci          #+#    #+#             */
-/*   Updated: 2024/08/15 13:32:00 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/08/21 15:29:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_isprint(int i);
 int		ft_blank(int c);
 /*<string.h>*/
 int		ft_strlen(const char *str);
-int	ft_empty(char *argv);
+int		ft_empty(char *argv);
 int		ft_len(char	**array);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);

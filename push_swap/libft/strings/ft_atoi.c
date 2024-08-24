@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 11:54:47 by gongarci          #+#    #+#             */
-/*   Updated: 2024/07/29 20:47:12 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/08/21 15:29:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi(const char *str)
 {
 	int			i;
 	int			negative;
-	int	result;
+	int			result;
 
 	i = 0;
 	negative = 1;
@@ -33,11 +33,12 @@ int	ft_atoi(const char *str)
 	{
 		result = (str[i] - '0') + (result * 10);
 		if (result * negative > INT_MAX || result * negative < INT_MIN)
-			return(ft_printf("Error out of range\n"), 1);
+			return (ft_printf("Error out of range\n"), 1);
 		i++;
 	}
 	return (result * negative);
 }
+
 long	ft_atol(const char *str)
 {
 	int			i;
@@ -59,7 +60,7 @@ long	ft_atol(const char *str)
 	{
 		result = (str[i] - '0') + (result * 10);
 		if (result * negative > INT_MAX || result * negative < INT_MIN)
-			return(ft_printf("Error out of range atol\n"), 1);
+			return (ft_printf("Error out of range atol\n"), 1);
 		i++;
 	}
 	return (result * negative);

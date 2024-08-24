@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_empty.c                                         :+:      :+:    :+:   */
+/*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 20:56:26 by gongarci          #+#    #+#             */
-/*   Updated: 2024/08/21 15:25:52 by marvin           ###   ########.fr       */
+/*   Created: 2024/08/21 15:31:10 by marvin            #+#    #+#             */
+/*   Updated: 2024/08/21 15:31:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../include/push_swap.h"
 
-int	ft_empty(char *argv)
+void	free_stacks(t_lst **stack_a, t_lst **stack_b)
 {
-	int	len;
+	t_lst	*head;
 
-	len = ft_strlen(argv);
-	if (argv[0] == '\0' || len == 0)
-		return (1);
-	else if (len > 0 && ft_strncmp(argv, " ", len) != 0)
-		return (0);
-	else
-		return (1);
+	if (!(*stack_a) && !(*stack_b))
+		return ;
+	while (*stack_a)
+	{
+		head = (*stack_a)->next;
+		free(*stack_a);
+		*stack_a = head;
+	}
+	if (!(*stack_b))
+		return ;
+	while (*stack_b)
+	{
+		head = (*stack_b)->next;
+		free(*stack_b);
+		*stack_b = head;
+	}
+	ft_printf("stacks frees\n");
 }
