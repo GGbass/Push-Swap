@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/08/22 19:04:11 by marvin           ###   ########.fr        #
+#    Updated: 2024/08/30 11:44:51 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,15 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 NAME = push_swap
+#./src/soft_sort \
+./src/testing.c \
 
-SRC =	./src/free_stacks.c \
+SRC =	./src/testing.c \
+		./src/sort_tools.c \
+		./src/push_swap.c \
+		./src/free_stacks.c \
 		./src/moves_a.c \
+		./src/moves_b.c \
 		./src/lstd_tools.c \
 		./src/params.c \
 		./src/main.c \
@@ -40,25 +46,27 @@ all: $(NAME) show_progreesss
 
 $(NAME): $(OBJ)
 	@make -s -C libft 
-	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap -no-pie
+	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
+#-no-pie
 	
 show_progreesss:
 		@for file in $(SRC); do \
 			echo "$(GREEN)Compiling $$file "; \
 		done; \
 		echo "Compiled: 100%$(DEFAULT)"; \
+
 #bonus: 
 #$(NAMEB): $(OBJB)
 #	@make -C libft
 #	$(CC) $(CFLAGS) $(OBJB) -L libft -lft -o bonus
 
 clean:
-		rm -f $(NAME)
+	rm -f  $(NAME)
 #rm -f $(NAMEB)
 		@make fclean -s -C libft
 	
 fclean: clean
-	rm -f $(OBJ)
+	 rm -f  $(OBJ)
 #rm -f $(OBJB)
 	@make  clean -s -C libft
 
@@ -70,7 +78,7 @@ re: fclean all
 
 git:
 	git add .
-	git commit
+	git commit -m "in process"
 	git push
 
 .PHONY: clean fclean re all 

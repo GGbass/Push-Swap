@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 09:22:33 by gongarci          #+#    #+#             */
-/*   Updated: 2024/07/15 20:18:27 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/08/27 21:19:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,5 @@ char	*ft_itoa(int n)
 	printf("Result ft_itoa %s\n:", result);
 	result2 = itoa(n);
 	printf("Result itoa %s\n:", result2);
-	return (0);
-}*/
-
-/*int	main(void)
-{
-	int	n = 
 	return (0);
 }*/

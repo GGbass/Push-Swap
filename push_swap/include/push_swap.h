@@ -18,8 +18,16 @@
 typedef struct s_lst
 {
 	int				value;
+	int			index;
 	struct s_lst	*next;
 }			t_lst;
+
+typedef struct s_values
+{
+	t_lst		*tail;
+	t_lst		*mid;
+	t_lst		*prev;
+}			t_values;
 
 enum e_operation
 {
@@ -35,23 +43,38 @@ enum e_operation
 	rrb,
 	rrr
 };
-t_lst	*new_node(int value);
-t_lst	*ft_nodelstlast(t_lst *lst);
-void	ft_nodelstadd_front(t_lst **lst, t_lst *new);
-void	add_node_to_end(t_lst **head, int value);
-void	add(t_lst **lst, int value);
-void	ft_nodelstadd_back(t_lst **lst, t_lst *new_node);
+
+
+/*linked list tools*/
+t_lst		*new_node(int value);
+void		print_list(t_lst *stack);
+void		add(t_lst **lst, int value, int index);
+void		free_stacks(t_lst **stack_a, t_lst **stack_b);
+int			list_size(t_lst *stack);
+t_values	*get_tail(t_lst *stack);
 /*	check arguments	*/
-int		ft_params(char **argv);
-int		check_sign(char *argv);
-int		ft_isduplicate(int **numbers, int len);
+int			array_value(int argc, char **argv, int **numbers);
 /*	movements	*/
-void	swap_a(t_lst **stack_a);
-void	swap_b(t_lst **stack_b);
-void	push_a(t_lst **stack_a, t_lst **stack_b);
-void	push_b(t_lst **stack_b, t_lst **stack_a);
-void	rotate_a(t_lst **stack_a);
-void	rotate_b(t_lst **stack_b);
-void	reverse_rotate_a(t_lst **stack_a);
-void	free_stacks(t_lst **stack_a, t_lst **stack_b);
+void		swap_a(t_lst **stack_a);
+void		swap_b(t_lst **stack_b);
+void		swap_s(t_lst **stack_a, t_lst **stack_b);
+void		push_a(t_lst **stack_a, t_lst **stack_b);
+void		push_b(t_lst **stack_b, t_lst **stack_a);
+void		rotate_a(t_lst **stack_a);
+void		rotate_b(t_lst **stack_b);
+void		rotate_s(t_lst **stack_a, t_lst **stack_b);
+void		reverse_rotate_a(t_lst **stack_a);
+void		reverse_rotate_b(t_lst **stack_b);
+void		reverse_rr(t_lst **stack_a, t_lst **stack_b);
+/*sort tools*/
+t_lst		*get_highest(t_lst *stack);
+t_lst		*second_highest(t_lst *stack);
+t_lst		*get_lowest(t_lst *stack);
+int			check_sort(t_lst *stack_a);
+void		sort_three(t_lst **stack_a);
+/*algorithsm */
+int			push_swap(t_lst **stack_a, t_lst **stack_b, int len);
+void		sort_everything(t_lst **stack_a, t_lst **stack_b);
+void		k_sort1(t_lst **stack_a, t_lst **stack_b);
+void		k_sort2(t_lst **stack_a, t_lst **stack_b);
 #endif

@@ -81,7 +81,7 @@ OBJS = $(SRC:.c=.o)
 CURRENT_FILE = 1
 TOTAL_FILES = $(words $(SRC))
 COMPILER = gcc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 

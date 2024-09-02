@@ -6,49 +6,56 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:00:03 by gongarci          #+#    #+#             */
-/*   Updated: 2024/08/21 15:24:51 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/27 22:44:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap_a(t_lst **stack_a)
+void	swap(t_lst **stack)
 {
 	t_lst	*head;
 	t_lst	*prev;
 
-	if (!(*stack_a) || !(*stack_a)->next)
+	prev = NULL;
+	if (!(*stack) || !(*stack)->next)
 		return ;
-	head = *stack_a;
+	head = *stack;
 	while(head->next->next != NULL)
 	{
 		prev = head;
 		head = head->next;
 	}
- /* prev = 3 head = 4 head->next 5 */
-	prev->next = head->next;
-	head->next->next = head;
-	head->next = NULL;
+	if(prev != NULL){
+		prev->next = head->next;
+		head->next->next = head;
+		head->next = NULL;	
+	}else{
+		*stack = head->next;
+		(*stack)->next = head;
+		head->next = NULL;	
+	}
+}
+
+void	swap_a(t_lst **stack_a)
+{
+	swap(stack_a);
 	ft_printf("sa\n");
 }
 
 void	swap_b(t_lst **stack_b)
 {
-	t_lst	*head;
-	t_lst	*prev;
-
-	if (!(*stack_b) || !(*stack_b)->next)
-		return ;
-	head = *stack_b;
-	while(head->next->next != NULL)
-	{
-		prev = head;
-		head = head->next;
-	}
-	prev->next = head->next;
-	head->next->next = head;
-	head->next = NULL;
+	swap(stack_b);
 	ft_printf("sb\n");
+}
+
+void	swap_s(t_lst **stack_a, t_lst **stack_b)
+{
+	if (*stack_a != NULL)
+		swap(stack_a);
+	if (*stack_b != NULL)
+		swap(stack_b);
+	ft_printf("ss\n");
 }
 
 void	push_a(t_lst **stack_a, t_lst **stack_b)
@@ -64,7 +71,7 @@ void	push_a(t_lst **stack_a, t_lst **stack_b)
 	else
 	{
 		prev = *stack_b;
-		while(prev->next->next != NULL)
+		while (prev->next->next != NULL)
 			prev = prev->next;
 		node = prev->next;
 		prev->next = NULL;
@@ -78,7 +85,9 @@ void	push_a(t_lst **stack_a, t_lst **stack_b)
 			prev = prev->next;
 		prev->next = node;
 	}
+	ft_printf("pa\n");
 }
+
 void	push_b(t_lst **stack_b, t_lst **stack_a)
 {
 	t_lst	*node;
@@ -106,71 +115,5 @@ void	push_b(t_lst **stack_b, t_lst **stack_a)
 			prev = prev->next;
 		prev->next = node;
 	}
-}
-/*first element becomes 0 22 335 the last one*/
-
-void	rotate_a(t_lst **stack_a)
-{
-	t_lst	*prev;
-	t_lst	*tmp;
-
-	if (!(*stack_a) || (*stack_a)->next == NULL)
-		return ;
-	tmp = *stack_a;
-	prev = *stack_a;
-	while (tmp->next != NULL)
-	{
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	prev->next = NULL;
-	tmp->next = *stack_a;
-	*stack_a = tmp;
-	printf("ra\n");
-}
-
-void	rotate_b(t_lst **stack_b)
-{
-	t_lst	*prev;
-	t_lst	*tmp;
-
-	if (!(*stack_b) || (*stack_b)->next == NULL)
-		return ;
-	tmp = *stack_b;
-	prev = *stack_b;
-	while (tmp->next != NULL)
-	{
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	prev->next = NULL;
-	tmp->next = *stack_b;
-	*stack_b = tmp;
-	printf("rb\n");
-}
-
-void	reverse_rotate_a(t_lst **stack_a)
-{
-	t_lst	*tmp;
-	t_lst	*head;
-
-	if (!(*stack_a) || (*stack_a)->next == NULL)
-		return ;
-	head = *stack_a;
-	tmp = head;
-	if (tmp->next->next == NULL)
-	{
-		head->next = NULL;
-		tmp->next = head;
-		return ;
-	}
-	else
-	{
-		while(tmp->next != NULL)
-			tmp = tmp->next;
-		tmp->next = head;
-		*stack_a = (*stack_a)->next;
-		head->next = NULL;
-	}
-	printf("rra\n");
+	ft_printf("pb\n");
 }

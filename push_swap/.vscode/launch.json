@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "/Ubuntu/home/gonzo/push_swap/push_swap/src",
-      "program": "/Ubuntu/home/gonzo/push_swap/push_swap/src/build/Debug/outDebug",
+      "cwd": "//wsl.localhost/Ubuntu/home/gonzo/push_swap/push_swap/src",
+      "program": "//wsl.localhost/Ubuntu/home/gonzo/push_swap/push_swap/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
