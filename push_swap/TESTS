@@ -1,5 +1,5 @@
 
-ksort 1 
+sort 1 
 
 check for inspector on last digits if the cost is higher than 5  just push it to B
 
@@ -10,3 +10,8 @@ sort2 can be done on the same way as inspector (take num with less cost) to redu
 in sort2 we most put those unsort numbers on the tail of stack a,
 that means if we found the highest number most be  next to the lowest on stack a
 by doubly swaping and doubly rotations or reverse
+
+
+
+arreglar la funcion del push
+

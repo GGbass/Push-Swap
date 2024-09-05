@@ -51,15 +51,14 @@ void		print_list(t_lst *stack);
 void		add(t_lst **lst, int value, int index);
 void		free_stacks(t_lst **stack_a, t_lst **stack_b);
 int			list_size(t_lst *stack);
-t_values	*get_tail(t_lst *stack);
 /*	check arguments	*/
 int			array_value(int argc, char **argv, int **numbers);
 /*	movements	*/
 void		swap_a(t_lst **stack_a);
 void		swap_b(t_lst **stack_b);
 void		swap_s(t_lst **stack_a, t_lst **stack_b);
-void		push_a(t_lst **stack_a, t_lst **stack_b);
-void		push_b(t_lst **stack_b, t_lst **stack_a);
+void		push_a(t_lst **stack1, t_lst **stack2);
+void		push_b(t_lst **stack1, t_lst **stack2);
 void		rotate_a(t_lst **stack_a);
 void		rotate_b(t_lst **stack_b);
 void		rotate_s(t_lst **stack_a, t_lst **stack_b);
@@ -70,11 +69,14 @@ void		reverse_rr(t_lst **stack_a, t_lst **stack_b);
 t_lst		*get_highest(t_lst *stack);
 t_lst		*second_highest(t_lst *stack);
 t_lst		*get_lowest(t_lst *stack);
+t_values	*get_tail(t_lst *stack);
+t_lst		*tail(t_lst *stack);
 int			check_sort(t_lst *stack_a);
 void		sort_three(t_lst **stack_a);
+int			count_r(t_lst *stack, int value);
 /*algorithsm */
 int			push_swap(t_lst **stack_a, t_lst **stack_b, int len);
 void		sort_everything(t_lst **stack_a, t_lst **stack_b);
-void		k_sort1(t_lst **stack_a, t_lst **stack_b);
-void		k_sort2(t_lst **stack_a, t_lst **stack_b);
+void		sort1(t_lst **stack_a, t_lst **stack_b);
+void		sort2(t_lst **stack_a, t_lst **stack_b);
 #endif

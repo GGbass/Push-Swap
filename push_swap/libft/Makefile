@@ -38,6 +38,7 @@ SRC =	./strings/ft_atoi.c \
 		./strings/ft_split.c \
 		./strings/ft_strmapi.c \
 		./strings/ft_striteri.c \
+		./ft_is/ft_int_max.c \
 		./ft_is/ft_isalpha.c \
 		./ft_is/ft_isdigit.c \
 		./ft_is/ft_isalnum.c \

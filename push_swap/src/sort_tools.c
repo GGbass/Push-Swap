@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 21:08:01 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/25 21:08:01 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/05 07:04:21 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	sort_three(t_lst **stack_a)
 		swap_a(stack_a);
 	else if ((*stack_a)->next == lowest)
 	{
-		reverse_rotate_a(stack_a);
+		rotate_a(stack_a);
 		if (check_sort(*stack_a) == 1)
 			return ;
 		else
@@ -103,7 +103,7 @@ void	sort_three(t_lst **stack_a)
 	}
 	else
 	{
-		rotate_a(stack_a);
+		reverse_rotate_a(stack_a);
 		if (check_sort(*stack_a) == 1)
 			return ;
 		else
