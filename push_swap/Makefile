@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/08/30 11:44:51 by marvin           ###   ########.fr        #
+#    Updated: 2024/09/04 20:24:09 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 NAME = push_swap
-#./src/soft_sort \
-./src/testing.c \
 
-SRC =	./src/testing.c \
+SRC =	./src/sort1.c \
+		./src/soft_sort.c \
+		./src/testing.c \
 		./src/sort_tools.c \
 		./src/push_swap.c \
 		./src/free_stacks.c \

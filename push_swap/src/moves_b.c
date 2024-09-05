@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   moves_b.c                                          :+:      :+:    :+:   */
@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	rotate(t_lst **stack)
+void	reverse_rotate(t_lst **stack)
 {
 	t_lst	*prev;
 	t_lst	*tmp;
@@ -31,28 +31,26 @@ void	rotate(t_lst **stack)
 	*stack = tmp;
 }
 
-void	rotate_a(t_lst **stack_a)
+void	reverse_rotate_a(t_lst **stack_a)
 {
-	rotate(stack_a);
-	ft_printf("ra\n");
+	reverse_rotate(stack_a);
+	ft_printf("rra\n");
 }
 
-void	rotate_b(t_lst **stack_b)
+void	reverse_rotate_b(t_lst **stack_b)
 {
-	rotate(stack_b);
-	ft_printf("rb\n");
+	reverse_rotate(stack_b);
+	ft_printf("rrb\n");
 }
 
-void	rotate_s(t_lst **stack_a, t_lst **stack_b)
-{
-	if ((*stack_a) != NULL)
-		rotate(stack_a);
-	if ((*stack_b) != NULL)
-		rotate(stack_b);
-	ft_printf("rr\n");
-}
 
-void	reverse_rotate(t_lst **stack)
+void	reverse_rr(t_lst **stack_a, t_lst **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	ft_printf("rrr\n");
+}
+void	rotate(t_lst **stack)
 {
 	t_lst	*tmp;
 	t_lst	*head;
@@ -77,20 +75,23 @@ void	reverse_rotate(t_lst **stack)
 	}
 }
 
-void	reverse_rotate_a(t_lst **stack_a)
+void	rotate_a(t_lst **stack_a)
 {
-	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	rotate(stack_a);
+	ft_printf("ra\n");
 }
 
-void	reverse_rotate_b(t_lst **stack_b)
+void	rotate_b(t_lst **stack_b)
 {
-	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	rotate(stack_b);
+	ft_printf("rb\n");
 }
-void	reverse_rr(t_lst **stack_a, t_lst **stack_b)
+
+void	rotate_s(t_lst **stack_a, t_lst **stack_b)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
+	if ((*stack_a) != NULL)
+		rotate(stack_a);
+	if ((*stack_b) != NULL)
+		rotate(stack_b);
+	ft_printf("rr\n");
 }

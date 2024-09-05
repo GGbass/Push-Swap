@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   moves_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:00:03 by gongarci          #+#    #+#             */
-/*   Updated: 2024/08/27 22:44:03 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/05 07:17:25 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 void	swap(t_lst **stack)
+{
+	t_lst	*head;
+
+	if (!(*stack) || !(*stack)->next)
+		return ;
+	head = *stack;
+	*stack = head->next;
+	head->next = (*stack)->next;
+	(*stack)->next = head;
+}
+
+
+/* void	swap(t_lst **stack)
 {
 	t_lst	*head;
 	t_lst	*prev;
@@ -26,16 +39,19 @@ void	swap(t_lst **stack)
 		prev = head;
 		head = head->next;
 	}
-	if(prev != NULL){
+	if(prev != NULL)
+	{
 		prev->next = head->next;
 		head->next->next = head;
 		head->next = NULL;	
-	}else{
+	}
+	else
+	{
 		*stack = head->next;
 		(*stack)->next = head;
-		head->next = NULL;	
+		head->next = NULL;
 	}
-}
+} */
 
 void	swap_a(t_lst **stack_a)
 {
@@ -58,7 +74,30 @@ void	swap_s(t_lst **stack_a, t_lst **stack_b)
 	ft_printf("ss\n");
 }
 
-void	push_a(t_lst **stack_a, t_lst **stack_b)
+void	push_a(t_lst **stack1, t_lst **stack2)
+{
+	t_lst	*tmp;
+	if (*stack2 == NULL || !stack2)
+		return ;
+	tmp = *stack2;
+	(*stack2)->next = *stack1;
+	if ((*stack2))
+	ft_printf("pa\n");
+}
+
+void	push_b(t_lst **stack1, t_lst **stack2)
+{
+	t_lst	*tmp;
+	if (*stack2 == NULL || !stack2)
+		return ;
+	tmp = *stack2;
+	(*stack2)->next = *stack1;
+	*stack1 = tmp;
+	ft_printf("pb\n");
+}
+
+
+/* void	push_a(t_lst **stack_a, t_lst **stack_b)
 {
 	t_lst	*node;
 	t_lst	*prev;
@@ -116,4 +155,4 @@ void	push_b(t_lst **stack_b, t_lst **stack_a)
 		prev->next = node;
 	}
 	ft_printf("pb\n");
-}
+} */

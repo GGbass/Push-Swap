@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-/* void	print_list(t_lst *stack_a)
+void	print_list(t_lst *stack_a)
 {
 	t_lst	*current;
 
@@ -25,9 +25,9 @@
 		current = current->next;
 	}
 	return ;
-} */
+}
 
-void	print_list(t_lst *stack)
+/* void	print_list(t_lst *stack)
 {
 	t_lst	*current;
 
@@ -40,7 +40,7 @@ void	print_list(t_lst *stack)
 	}
 	ft_printf("print_list %d\n", current->value);
 	return ;
-}
+} */
 
 t_lst	*new_node(int value)
 {

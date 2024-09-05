@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 02:11:28 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/25 02:11:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/05 07:02:38 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,33 +122,54 @@ void	sort_everything(t_lst **stack_a, t_lst **stack_b)
 
 void	sort_four_or_five(t_lst **stack_a, t_lst **stack_b, int len)
 {
-	t_lst	*highest;
+	int		rotations;
+	int		reverse_rotations;
 
-	highest = get_highest(*stack_a);
-	while (list_size(*stack_a) != 3)
+	while (list_size(*stack_a) != 3 && check_sort(*stack_a) != 1)
 	{
-		highest = get_highest(*stack_a);
-		if (highest->next == NULL)
-			push_b(stack_b, stack_a);
-		else if (highest == *stack_a)
+		/* print_list(*stack_a); */
+		ft_printf(" highest value %d\n" , get_highest(*stack_a)->value);
+		rotations = count_r(*stack_a, get_highest(*stack_a)->value);
+		ft_printf("rotations = %d\n", rotations);
+		reverse_rotations = list_size(*stack_a) - 2 ;
+		print_list(*stack_b);
+		if ( rotations < reverse_rotations)
 		{
-			reverse_rotate_a(stack_a);
-			if (check_sort(*stack_a) == 1)
-				return ;
+			while (rotations > 0)
+			{
+				ft_printf("reverse_rotations = %d\n\n", reverse_rotations);
+				print_list(*stack_a);
+				ft_printf("\n\n");
+				rotate_a(stack_a);
+				rotations--;
+			}
 		}
 		else
 		{
-			rotate_a(stack_a);
-			if (check_sort(*stack_a) == 1)
-				return ;
+			while (reverse_rotations > 0)
+			{
+				ft_printf("reverse_rotations = %d\n\n", reverse_rotations);
+				print_list(*stack_a);
+				ft_printf("\n\n");
+				reverse_rotate_a(stack_a);
+				reverse_rotations--;
+			}
 		}
+		push_b(stack_b, stack_a);
+		if (check_sort(*stack_a) == 1)
+			break ;
 	}
+	ft_printf(" out of while stack_a\n");
 	if (check_sort(*stack_a) != 1)
 		sort_three(stack_a);
-	if (len == 5 && highest->next != NULL)
+	print_list(*stack_a);
+	if (len == 5 && get_highest(*stack_b)->next != NULL)
 		swap_b(stack_b);
 	while (*stack_b != NULL)
-	{
+	{	
+		print_list(*stack_a);
+		ft_printf("\n space \n");
+		print_list(*stack_b);
 		if (get_lowest(*stack_b)->next != NULL)
 			swap_b(stack_b);
 		push_a(stack_a, stack_b);
@@ -183,8 +204,8 @@ int	push_swap(t_lst **stack_a, t_lst **stack_b, int len)
 		sort_four_or_five(stack_a, stack_b, len);
 	else
 	{
-		// sort_everything(stack_a, stack_b);
-		k_sort1(stack_a, stack_b);
+		//sort_everything(stack_a, stack_b);
+		//sort1(stack_a, stack_b);
 	}
 	if (check_sort(*stack_a) == 0)
 		ft_printf("why it's not sorted\n");
