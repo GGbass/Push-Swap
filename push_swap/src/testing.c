@@ -53,7 +53,7 @@ static int find_place_a(int value, t_lst *current, t_lst *b)
 	else
 		tmp = current->next;
 	// when tail value is  highest  tail b and  tail b is greater than head b
-	
+
 	//  when tail a is  lower than tail b and tail b is greater than head b
 	if (get_highest(b)->value < value && get_highest(b)->value == current->value)
 		return (1);
@@ -158,8 +158,8 @@ int	inspector(t_lst **a, t_lst **b)
 	counter_a_r = list_size(*a) - counter_a;
 	counter_b_r = list_size(*b) - counter_b;
 
-	if (counter_b >= 3 && counter_a >= 3)
-		return (1);
+/* 	if (counter_b >= 3 && counter_a >= 3)
+		return (1); */
 	while(tmp != NULL)
 	{
 		counter2 = count_ar(*b, tmp->value);
@@ -185,6 +185,8 @@ int	inspector(t_lst **a, t_lst **b)
 			counter_b--;
 			counter_a--;
 		}
+		/* if (counter_b > 5 || counter_a > 5)
+			return (1); */
 		while (counter_b-- > 0)
 		{
 			reverse_rotate_b(b);
@@ -202,6 +204,8 @@ int	inspector(t_lst **a, t_lst **b)
 			counter_b_r--;
 			counter_a_r--;
 		}
+		/* if (counter_b_r > 5 || counter_a_r > 5)
+			return (1); */
 		while (counter_b_r-- > 0)
 		{
 			rotate_b(b);
@@ -307,8 +311,8 @@ void	k_sort1(t_lst **stack_a, t_lst **stack_b)
 	}
 	if (list_size((*stack_a)) == 3)
 		sort_three(stack_a);
-	/* while ((*stack_a) != NULL)
-		push_b(stack_b, stack_a); */
+	while ((*stack_a) != NULL)
+		push_b(stack_b, stack_a);
 	k_sort2(stack_a, stack_b);
 }
 
@@ -316,33 +320,41 @@ void	k_sort2(t_lst **stack_a, t_lst **stack_b)
 {
 	int	ra_count;
 	int	rra_count;
-	/* ft_printf("k_sort2\n"); */
-	// print_list(*stack_b);
+	// ft_printf("k_sort2\n");
+	/* print_list(*stack_b); */
 	while (list_size(*stack_b) != 0)
 	{
-		print_list(*stack_b);
-		ft_printf("stack b<<<<\n\n>>>>");
+		/* print_list(*stack_b);
+		ft_printf("stack b<<<<\n\n>>>>\n");
 		print_list(*stack_a);
-		ft_printf("\n\n");
-		inspector2(stack_a, stack_b);
-		push_a(stack_a, stack_b);
-	}
-		ra_count = count_r((*stack_a), get_lowest(*stack_a)->value);
-		rra_count = list_size(*stack_a) - ra_count;
+		ft_printf("\n\n"); */
+		// inspector2(stack_a, stack_b);
+		// push_a(stack_a, stack_b);
+		// ft_printf("second while \n");
+		ra_count = count_r((*stack_b), get_lowest(*stack_b)->value);
+		rra_count = list_size(*stack_b) - ra_count;
 		if (ra_count > rra_count)
 		{	
-			while (tail((*stack_a))->value != get_lowest(*stack_a)->value)
+			while ((tail(*stack_b))->value != get_lowest(*stack_b)->value)
 			{
-				rotate_a(stack_a);
+				rotate_a(stack_b);
 			}
+			push_a(stack_a, stack_b);
+
 		}
 		else
 		{
-			while (tail((*stack_a))->value != get_lowest(*stack_a)->value)
+			while ((tail(*stack_b))->value != get_lowest(*stack_b)->value)
 			{
-				reverse_rotate_a(stack_a);
-			}	
+				reverse_rotate_a(stack_b);
+			}
+			push_a(stack_a, stack_b);
+
 		}
+		/* ft_printf("end stack_a \n");
+		print_list(*stack_a);
+		ft_printf("end stack_a \n"); */
+	}
 }
 
 
