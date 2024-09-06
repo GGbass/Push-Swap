@@ -18,7 +18,7 @@
 typedef struct s_lst
 {
 	int				value;
-	int			index;
+	int				index;
 	struct s_lst	*next;
 }			t_lst;
 

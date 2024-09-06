@@ -31,17 +31,8 @@ int	main(int argc, char **argv)
 		add(&stack_a, numbers[i], i);
 		i++;
 	}
-	print_list(stack_a);
-	push_b(&stack_b, &stack_a);
-/* 	push_a(&stack_b, &stack_a);
-	push_a(&stack_b, &stack_a); */
-	ft_printf("after pushing b\n");
-
-	print_list(stack_a);
-	ft_printf("<< stack a \n and b >> \n");
-	print_list(stack_b);
 	free(numbers);
-	//push_swap(&stack_a, &stack_b, len);
+	push_swap(&stack_a, &stack_b, len);
 	free_stacks(&stack_a, &stack_b);
 	return (0);
 }

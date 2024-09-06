@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:00:03 by gongarci          #+#    #+#             */
-/*   Updated: 2024/09/05 07:17:25 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/09/06 21:14:31 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,30 +74,36 @@ void	swap_s(t_lst **stack_a, t_lst **stack_b)
 	ft_printf("ss\n");
 }
 
-void	push_a(t_lst **stack1, t_lst **stack2)
+void	push_b(t_lst **stack_b, t_lst **stack_a)
 {
-	t_lst	*tmp;
-	if (*stack2 == NULL || !stack2)
+	t_lst	*node;
+	
+	if (!*stack_a)
 		return ;
-	tmp = *stack2;
-	(*stack2)->next = *stack1;
-	if ((*stack2))
-	ft_printf("pa\n");
-}
-
-void	push_b(t_lst **stack1, t_lst **stack2)
-{
-	t_lst	*tmp;
-	if (*stack2 == NULL || !stack2)
-		return ;
-	tmp = *stack2;
-	(*stack2)->next = *stack1;
-	*stack1 = tmp;
+	node = (*stack_a)->next;
+	(*stack_a)->next = *stack_b;
+	*stack_b = *stack_a;
+	*stack_a = node;
 	ft_printf("pb\n");
 }
 
 
-/* void	push_a(t_lst **stack_a, t_lst **stack_b)
+void	push_a(t_lst **stack_a, t_lst **stack_b)
+{
+	t_lst	*node;
+	
+	if (!*stack_b)
+		return ;
+	node = (*stack_b)->next;
+	(*stack_b)->next = *stack_a;
+	*stack_a = *stack_b;
+	*stack_b = node;
+	ft_printf("pa\n");
+}
+
+
+
+/* 	void	push_a(t_lst **stack_a, t_lst **stack_b)
 {
 	t_lst	*node;
 	t_lst	*prev;
@@ -111,7 +117,7 @@ void	push_b(t_lst **stack1, t_lst **stack2)
 	{
 		prev = *stack_b;
 		while (prev->next->next != NULL)
-			prev = prev->next;
+			prev = prev->next; 
 		node = prev->next;
 		prev->next = NULL;
 	}
@@ -125,9 +131,10 @@ void	push_b(t_lst **stack1, t_lst **stack2)
 		prev->next = node;
 	}
 	ft_printf("pa\n");
-}
+} */
 
-void	push_b(t_lst **stack_b, t_lst **stack_a)
+
+/*void	push_b(t_lst **stack_b, t_lst **stack_a)
 {
 	t_lst	*node;
 	t_lst	*prev;

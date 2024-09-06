@@ -6,7 +6,7 @@
 #    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/09/04 20:24:09 by gongarci         ###   ########.fr        #
+#    Updated: 2024/09/06 22:50:39 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ re: fclean all
 
 git:
 	git add .
-	git commit -m "in process"
+	git commit -m "sort 4 and 5 missing"
 	git push
 
 .PHONY: clean fclean re all 
