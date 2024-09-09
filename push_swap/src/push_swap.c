@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 02:11:28 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/06 22:06:26 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/09/07 01:16:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
 
 void	sort_four_or_five(t_lst **stack_a, t_lst **stack_b, int len)
 {
@@ -21,53 +20,35 @@ void	sort_four_or_five(t_lst **stack_a, t_lst **stack_b, int len)
 
 	while (list_size(*stack_a) != 3 && check_sort(*stack_a) != 1)
 	{
-
-		ft_printf("lowest value %d\n" , get_lowest(*stack_a)->value);
-		
 		rotations = count_r(*stack_a, get_lowest(*stack_a)->value);
-		ft_printf("rotations = %d\n", rotations);
-		ft_printf("rev rotations %d\n", list_size(*stack_a) - 2);
 		reverse_rotations = list_size(*stack_a) - 2 ;
-		print_list(*stack_a);
-		ft_printf("\n\n");
-		print_list(*stack_b);
 		if ((*stack_a) == get_lowest(*stack_a))
+		{
 			push_b(stack_b, stack_a);
+			continue;
+		}
 		if (rotations < reverse_rotations)
 		{
-			while (rotations > 0 || (*stack_a) == get_lowest(*stack_a))
+			while (rotations > 0 && (*stack_a) != get_lowest(*stack_a))
 			{
-				ft_printf("reverse_rotations = %d\n\n", reverse_rotations);
-				print_list(*stack_a);
-				ft_printf("\n\n");
 				rotate_a(stack_a);
 				rotations--;
 			}
 		}
 		else
 		{
-			while (reverse_rotations > 0 || (*stack_a) == get_lowest(*stack_a))
+			while (reverse_rotations > 0 && (*stack_a) != get_lowest(*stack_a))
 			{
-				ft_printf("reverse_rotations = %d\n\n", reverse_rotations);
-				print_list(*stack_a);
-				ft_printf("\n\n");
 				reverse_rotate_a(stack_a);
 				reverse_rotations--;
 			}
 		}
 		push_b(stack_b, stack_a);
-		if (check_sort(*stack_a) == 1)
-			break ;
 	}
-	ft_printf(" out of while stack_a\n");
 	if (check_sort(*stack_a) != 1 && list_size(*stack_a) == 3)
 		sort_three(stack_a);
-	print_list(*stack_a);
 	while (*stack_b != NULL)
 	{
-		print_list(*stack_a);
-		ft_printf("\n\n\n space \n\n");
-		print_list(*stack_b);
 		if (get_lowest(*stack_b)->next != NULL)
 			swap_b(stack_b);
 		push_a(stack_a, stack_b);
@@ -97,9 +78,9 @@ int	push_swap(t_lst **stack_a, t_lst **stack_b, int len)
 		sort_four_or_five(stack_a, stack_b, len);
 	else
 	{
-		sort_four_or_five(stack_a, stack_b, len);
+		// sort_four_or_five(stack_a, stack_b, len);
 		//sort_everything(stack_a, stack_b);
-		//sort1(stack_a, stack_b);
+		sort1(stack_a, stack_b);
 	}
 	if (check_sort(*stack_a) == 0)
 	{
@@ -107,11 +88,9 @@ int	push_swap(t_lst **stack_a, t_lst **stack_b, int len)
 		ft_printf("why it's not sorted\n");
 	}
 	else
-	{
-		ft_printf("\nsorted\n");
-		
+	{	
 		print_list(*stack_a);
-		ft_printf("\nsorted\n");
+		ft_printf("sorted\n");
 	}
 	return (1);
 }

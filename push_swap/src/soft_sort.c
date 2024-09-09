@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   soft_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 10:17:08 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/04 23:52:50 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/09/07 00:53:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	count_r(t_lst *stack, int value)
 	t_lst	*tmp;
 
 	counter = 0;
-	tmp = tail(stack);
+	// tmp = tail(stack);
+	tmp = stack;
 	while (tmp && tmp->value != value)
 	{
 		/* ft_printf("tmp->value = %d\n", tmp->value); */
