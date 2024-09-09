@@ -3,29 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   testing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 11:14:50 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/08 21:53:41 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/09 17:25:02 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int find_place_a(int value, t_lst *current, t_lst *b)
+static	void	dual_rotate(t_lst **a, t_lst **b, int counter_a, int counter_b)
+{
+	while(counter_b > 0 && counter_a > 0)
+	{
+		rotate_s(a,b);
+		counter_b--;
+		counter_a--;
+	}
+	while (counter_b-- > 0)
+		rotate_b(b);
+
+	while (counter_a-- > 0)
+		rotate_a(a);
+}
+
+static void	dual_rev_rotate(t_lst **a, t_lst **b, int counter_a_r, int counter_b_r)
+{
+	while(counter_b_r > 0 && counter_a_r > 0)
+	{
+		reverse_rr(a,b);
+		counter_b_r--;
+		counter_a_r--;
+	}
+	while (counter_b_r-- > 0)
+		reverse_rotate_b(b);
+	while (counter_a_r-- > 0)
+		reverse_rotate_a(a);
+}
+
+static int find_place_a(int value, t_lst *current, t_lst *a)
 {
 	t_lst	*tmp;
 
 	if (current->next == NULL)
-		tmp = b;
+		tmp = a;
 	else
 		tmp = current->next;
 	// when tail value is  highest  tail b and  tail b is greater than head b
 
 	// when tail a is  lower than tail b and tail b is greater than head b
-	if (get_highest(b)->value < value && get_highest(b)->value == current->value)
+	if (get_highest(a)->value < value && get_highest(a)->value == current->value)
 		return (1);
-	else if (get_lowest(b)->value > value && get_lowest(b)->value == tmp->value)
+	else if (get_lowest(a)->value > value && get_lowest(a)->value == tmp->value)
 		return (1);
 	else if (value < tmp->value && value > current->value)
 		return (1);
@@ -64,9 +93,9 @@ int	inspector2(t_lst **a, t_lst **b)
 	int		counter_a_r;
 	int		counter_b_r;
 	t_lst	*tmp;
-	int	i = 0;
 
-	tmp = (*b)->next;
+	//tmp = (*b)->next;
+	tmp = *b;
 	if((*a) == NULL)
 		return (1);
 	counter_b = count_r(*b, (*b)->value);
@@ -91,48 +120,37 @@ int	inspector2(t_lst **a, t_lst **b)
 			counter_b_r = list_size(*a) - counter3;
 		}
 		tmp = tmp->next;
-		i++;
 	}
 	if(int_max(counter_b, counter_a) < int_max(counter_b_r, counter_a_r))
 	{
-		while(counter_b > 0 && counter_a > 0)
-		{
-			reverse_rr(a,b);
-			counter_b--;
-			counter_a--;
-		}
-		while (counter_b-- > 0)
-		{
-			reverse_rotate_b(b);
-		}
-		while (counter_a-- > 0)
-		{
-			reverse_rotate_a(a);
-		}
+		dual_rev_rotate(a,b,counter_a,counter_b);
 	}
 	else
 	{
-		while(counter_b_r > 0 && counter_a_r > 0)
-		{
-			rotate_s(a,b);
-			counter_b_r--;
-			counter_a_r--;
-		}
-		while (counter_b_r-- > 0)
-		{
-			rotate_b(b);
-		}
-		while (counter_a_r-- > 0)
-		{
-			rotate_a(a);
-		}
+		dual_rotate(a,b,counter_a_r,counter_b_r);
 	}
 	return (1);
 }
 
 void	sort2(t_lst **stack_a, t_lst **stack_b)
 {
-	int	ra_count = 0;
+	print_list(*stack_b);
+	push_a(stack_a, stack_b);
+	push_a(stack_a, stack_b);
+	if ((*stack_a)->value < (*stack_a)->next->value)
+		swap_a(stack_a);
+	while ((list_size(*stack_b) != 0))
+	{
+		inspector2(stack_a, stack_b);
+		push_a(stack_a, stack_b);
+	}
+	while (get_lowest(*stack_a) != *stack_a)
+	{
+		rotate_a(stack_a);
+	}
+}
+
+/* 	int	ra_count = 0;
 	int	rra_count = 0;
 
 	ft_printf("\n\n");
@@ -159,32 +177,4 @@ void	sort2(t_lst **stack_a, t_lst **stack_b)
 			}
 			push_a(stack_a, stack_b);
 		}
-	}
-/* 	ft_printf("\n\n");
-	print_list(*stack_a); */
-}
-
-
-
-
-/* 		ra_count = count_r((*stack_b), get_lowest(*stack_b)->value);
-		rra_count = list_size(*stack_b) - ra_count;
-		if (ra_count > rra_count)
-		{	
-			while (tail((*stack_b))->value != get_lowest(*stack_b)->value)
-			{
-				rotate_b(stack_b);
-			}
-			push_a(stack_a, stack_b);
-		}
-		else
-		{
-			while (tail((*stack_b))->value != get_lowest(*stack_b)->value)
-			{
-				reverse_rotate_b(stack_b);
-			}
-			push_a(stack_a, stack_b);
-		}
 	} */
-
-

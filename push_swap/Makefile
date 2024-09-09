@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:20:21 by gongarci          #+#    #+#              #
-#    Updated: 2024/09/08 22:35:29 by marvin           ###   ########.fr        #
+#    Updated: 2024/09/09 17:26:30 by gongarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ re: fclean all
 
 git:
 	git add .
-	git commit -m "sort 4 and 5 missing"
+	git commit -m "sorting 2 missing and norminette"
 	git push
 
 .PHONY: clean fclean re all 
