@@ -78,7 +78,7 @@ re: fclean all
 
 git:
 	git add .
-	git commit -m "sorting 2 missing and norminette"
+	git commit -m " current"
 	git push
 
 .PHONY: clean fclean re all 

@@ -86,7 +86,7 @@ int	push_swap(t_lst **stack_a, t_lst **stack_b, int len)
 	}
 	else
 	{	
-		print_list(*stack_a);
+		// print_list(*stack_a);
 		ft_printf("sorted\n");
 	}
 	return (1);

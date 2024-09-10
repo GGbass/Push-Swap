@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	int		*numbers;
 	int		len;
 	int		i = 0;
-
+	
 	len = array_value(argc, argv, &numbers);
 	//printf("Len: %d\n", len);
 	if (len <= 0)

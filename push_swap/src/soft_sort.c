@@ -23,6 +23,7 @@ int	count_r(t_lst *stack, int value)
 	tmp = stack;
 	while (tmp && tmp->value != value)
 	{
+		// ft_printf("tmp->value = %d\n", tmp->value);
 		if (tmp->next == NULL)
 		{
 			tmp = stack;
@@ -37,9 +38,13 @@ int	count_r(t_lst *stack, int value)
 t_lst	*tail(t_lst *stack)
 {
 	t_lst	*tmp;
+	t_lst	*tail;
 
 	tmp = stack;
-	while (tmp->next != NULL)
+	while (tmp)
+	{
+		tail = tmp;
 		tmp = tmp->next;
-	return (tmp);
+	}
+	return (tail);
 }
