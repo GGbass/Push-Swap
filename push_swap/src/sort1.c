@@ -168,5 +168,5 @@ void	sort1(t_lst **stack_a, t_lst **stack_b)
 	{
 		push_b(stack_b, stack_a);
 	} */
-	sort2(stack_a, stack_b);
+	//sort2(stack_a, stack_b, moves);
 }

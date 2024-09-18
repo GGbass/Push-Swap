@@ -12,24 +12,6 @@
 
 #include "../include/push_swap.h"
 
-static void	double_moves(t_moves *moves)
-{
-	moves->moves->rr = 0;
-	moves->moves->rrr = 0;
-	while(moves->moves->ra > 0 && moves->moves->rb > 0)
-	{
-		moves->moves->ra--;
-		moves->moves->rb--;
-		moves->moves->rr++;
-	}
-	while(moves->moves->rra > 0 && moves->moves->rrb > 0)
-	{
-		moves->moves->rra--;
-		moves->moves->rrb--;
-		moves->moves->rrr++;
-	}
-}
-
 static int	search_in_b(t_lst **stack_b, int a_value)
 {
 	t_lst 	*tmp;
@@ -56,7 +38,7 @@ static int	search_in_b(t_lst **stack_b, int a_value)
 	return (a_value);
 }
 
-static void	new_element_b(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
+static void	new_value_b(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 {
 	int	index;
 	int	size;
@@ -123,7 +105,7 @@ static void	to_top(t_lst **stack_a, t_lst *tmp, int i, t_moves *moves)
 	if (size % 2 == 0)
 	{
 		if (i + 1 > size / 2)
-			moves->moves->rra = (size - i);
+			moves->moves->rra = size - i;
 		else
 			moves->moves->ra = i;
 	}
@@ -153,7 +135,6 @@ static void	cost(t_moves *moves, int i)
 		moves->cheapest->pb = moves->moves->pb;
 	}
 }
-
 
 static void	moving_cheapest(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 {
@@ -193,7 +174,7 @@ static void	move_to_b(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 		else
 		{
 			// new_element_b(stack_a, stack_b, moves);
-			new_element_b(&tmp, stack_b, moves);
+			new_value_b(&tmp, stack_b, moves);
 		}
 		double_moves(moves);
 		cost(moves, i);
@@ -214,7 +195,7 @@ static void cheapest(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 	}
 	if (size == 3)
 		sort_three(stack_a);
-	sort2(stack_a, stack_b);
+	sort2(stack_a, stack_b, moves);
 }
 
 void	sort1(t_lst **stack_a, t_lst **stack_b)

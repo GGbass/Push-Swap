@@ -38,7 +38,7 @@ typedef struct s_mov
 	int	rr;
 	int	rra;
 	int	rrb;
-	int	rrr;	
+	int	rrr;
 	int	sa;
 	int	sb;
 	int	ss;
@@ -82,9 +82,11 @@ t_lst		*tail(t_lst *stack);
 int			check_sort(t_lst *stack_a);
 void		sort_three(t_lst **stack_a);
 int			count_r(t_lst *stack, int value);
-/*algorithsm */
+void		reverse_or_rotate(t_moves *moves, int size, int index);
+void		double_moves(t_moves *moves);
+/*algorithm */
 int			push_swap(t_lst **stack_a, t_lst **stack_b, int len);
 void		sort_everything(t_lst **stack_a, t_lst **stack_b);
 void		sort1(t_lst **stack_a, t_lst **stack_b);
-void		sort2(t_lst **stack_a, t_lst **stack_b);
+void		sort2(t_lst **stack_a, t_lst **stack_b, t_moves *moves);
 #endif
