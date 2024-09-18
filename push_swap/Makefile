@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 # Color Aliases
+
 DEFAULT = \033[0;39m
 GRAY = \033[0;90m
 RED = \033[0;91m
@@ -22,10 +23,11 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 NAME = push_swap
+#./src/sort1.c \
 
-SRC =	./src/sort1.c \
+SRC =	./src/a_to_b.c \
+		./src/b_to_a.c \
 		./src/soft_sort.c \
-		./src/testing.c \
 		./src/sort_tools.c \
 		./src/push_swap.c \
 		./src/free_stacks.c \

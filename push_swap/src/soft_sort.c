@@ -21,15 +21,11 @@ int	count_r(t_lst *stack, int value)
 
 	counter = 0;
 	tmp = stack;
-	while (tmp && tmp->value != value)
+	while (tmp->next != NULL)
 	{
-		// ft_printf("tmp->value = %d\n", tmp->value);
-		if (tmp->next == NULL)
-		{
-			tmp = stack;
-		}
-		else
-			tmp = tmp->next;
+		if (tmp->value == value)
+			return (counter);
+		tmp = tmp->next;
 		counter++;
 	}
 	return (counter);

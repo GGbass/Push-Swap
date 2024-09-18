@@ -15,3 +15,10 @@ by doubly swaping and doubly rotations or reverse
 
 arreglar la funcion del push
 
+
+
+
+
+We can try to find the cheapest movement
+
+head on stack A  must be (lowest or highest ?)   >>> on stack B 

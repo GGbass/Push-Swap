@@ -20,7 +20,30 @@ typedef struct s_lst
 	int				value;
 	int				index;
 	struct s_lst	*next;
-}			t_lst;
+}				t_lst;
+
+typedef struct s_moves
+{
+	struct s_mov	*cheapest;
+	struct s_mov	*moves;
+}	t_moves;
+
+typedef struct s_mov
+{
+	int	total;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;	
+	int	sa;
+	int	sb;
+	int	ss;
+}	t_mov;
+
 
 typedef struct s_values
 {
@@ -28,21 +51,6 @@ typedef struct s_values
 	t_lst		*mid;
 	t_lst		*prev;
 }			t_values;
-
-enum e_operation
-{
-	sa,
-	sb,
-	ss,
-	pa,
-	pb,
-	ra,
-	rb,
-	rr,
-	rra,
-	rrb,
-	rrr
-};
 
 
 /*linked list tools*/

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 21:08:01 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/07 01:25:51 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/17 21:30:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ t_lst	*second_highest(t_lst *stack)
 	while(tmp->next != NULL)
 	{
 		if (second->value < tmp->next->value && tmp->next != highest)
-		{
 			second = tmp->next;
-		}
 		tmp = tmp->next;
 	}
 	return (second);
@@ -57,10 +55,7 @@ t_lst	*get_highest(t_lst *stack)
 	while(tmp->next != NULL)
 	{
 		if (highest->value < tmp->next->value)
-		{
 			highest = tmp->next;
-			tmp = stack;
-		}
 		tmp = tmp->next;
 	}
 	return (highest);
@@ -76,10 +71,7 @@ t_lst	*get_lowest(t_lst *stack)
 	while(tmp->next != NULL)
 	{
 		if (lowest->value > tmp->next->value)
-		{
 			lowest = tmp->next;
-			//tmp = stack;
-		}
 		tmp = tmp->next;
 	}
 	return (lowest);
@@ -100,10 +92,7 @@ void	sort_three(t_lst **stack_a)
 	else if ((*stack_a)->next == get_lowest(*stack_a))
 	{
 		if (get_highest(*stack_a) == *stack_a)
-		{
-			reverse_rotate_a(stack_a);
-			reverse_rotate_a(stack_a);
-		}
+			rotate_a(stack_a);
 		else
 			swap_a(stack_a);
 	}
