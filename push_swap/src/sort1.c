@@ -102,8 +102,8 @@ static int	count_ar(t_lst *b, int value)
 	//ft_printf("value = %d\n", value);
 	return (counter);
 }
-		//  target node it has to be the biggest the smalles biggest
- 			// that means what is on head b  will target to the biggest on A 
+	// target node it has to be the biggest the smalles biggest
+	// that means what is on head b  will target to the biggest on A
 static int	inspector(t_lst **a, t_lst **b)
 {
 	int		counter2;

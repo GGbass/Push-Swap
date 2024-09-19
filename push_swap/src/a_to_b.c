@@ -51,20 +51,7 @@ static void	new_value_b(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 		return ;
 	index = count_r(*stack_b, search);
 	size = list_size(*stack_b);
-	if (size % 2 == 0)
-	{
-		if (index + 1 > size / 2)
-			moves->moves->rrb = size - index;
-		else
-			moves->moves->rb = index;
-	}
-	else
-	{
-		if (index > size / 2)
-			moves->moves->rrb = size - index;
-		else
-			moves->moves->rb = index;
-	}
+	rrb_or_rb(moves, size, index);
 }
 
 static void	max_moves_in_b(t_lst **stack_b, t_moves *moves)
@@ -76,20 +63,7 @@ static void	max_moves_in_b(t_lst **stack_b, t_moves *moves)
 	moves->moves->rrb = 0;
 	size = list_size(*stack_b);
 	index = count_r(*stack_b, get_highest(*stack_b)->value);
-	if (size % 2 == 0)
-	{
-		if (index + 1 > size / 2)
-			moves->moves->rrb = size - index;
-		else
-			moves->moves->rb = index;
-	}
-	else
-	{
-		if (index > size / 2)
-			moves->moves->rrb = (size - index);
-		else
-			moves->moves->rb = index;
-	}
+	rrb_or_rb(moves, size, index);
 }
 
 static void	to_top(t_lst **stack_a, t_lst *tmp, int i, t_moves *moves)
@@ -102,20 +76,7 @@ static void	to_top(t_lst **stack_a, t_lst *tmp, int i, t_moves *moves)
 	if ((*stack_a)->value == tmp->value)
 		return ;
 	size = list_size(*stack_a);
-	if (size % 2 == 0)
-	{
-		if (i + 1 > size / 2)
-			moves->moves->rra = size - i;
-		else
-			moves->moves->ra = i;
-	}
-	else
-	{
-		if (i > size / 2)
-			moves->moves->rra = size - i;
-		else
-			moves->moves->ra = i;
-	}
+	rra_or_ra(moves, size, i);
 }
 
 static void	cost(t_moves *moves, int i)
@@ -187,14 +148,12 @@ static void cheapest(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 	int	size;
 
 	size = list_size(*stack_a);
-	while(size > 3 || check_sort(*stack_a) != 1)
+	while(size > 2 || check_sort(*stack_a) != 1)
 	{
 		move_to_b(stack_a, stack_b, moves);
 		moving_cheapest(stack_a, stack_b, moves);
 		size--;
 	}
-	if (size == 3)
-		sort_three(stack_a);
 	sort2(stack_a, stack_b, moves);
 }
 

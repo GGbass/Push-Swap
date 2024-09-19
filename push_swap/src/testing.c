@@ -12,21 +12,39 @@
 
 #include "../include/push_swap.h"
 
-void	reverse_or_rotate(t_moves *moves, int size, int index)
+void	rra_or_ra(t_moves *moves, int size, int index)
 {
 	if (size % 2 == 0)
 	{
 		if (index + 1 > size / 2)
 			moves->moves->rra = size - index;
 		else
-			moves->moves->ra = index + 1;
+			moves->moves->ra = index;
 	}
 	else
 	{
 		if (index > size / 2)
 			moves->moves->rra = size - index;
 		else
-			moves->moves->ra = index + 1;
+			moves->moves->ra = index ;
+	}
+}
+
+void	rrb_or_rb(t_moves *moves, int size, int index)
+{
+	if (size % 2 == 0)
+	{
+		if (index + 1 > size / 2)
+			moves->moves->rrb = size - index;
+		else
+			moves->moves->rb = index;
+	}
+	else
+	{
+		if (index > size / 2)
+			moves->moves->rrb = size - index;
+		else
+			moves->moves->rb = index ;
 	}
 }
 
@@ -47,11 +65,3 @@ void	double_moves(t_moves *moves)
 		moves->moves->rrr++;
 	}
 }
-
-/* stacit int check_highest(t_lst **a, t_lst **b)
-{
-	if (get_highest(*a) > get_(highest(*b)))
-		return (1);
-	else
-		return (0);
-} */

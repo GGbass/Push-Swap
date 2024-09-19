@@ -82,7 +82,8 @@ t_lst		*tail(t_lst *stack);
 int			check_sort(t_lst *stack_a);
 void		sort_three(t_lst **stack_a);
 int			count_r(t_lst *stack, int value);
-void		reverse_or_rotate(t_moves *moves, int size, int index);
+void	rrb_or_rb(t_moves *moves, int size, int index);
+void	rra_or_ra(t_moves *moves, int size, int index);
 void		double_moves(t_moves *moves);
 /*algorithm */
 int			push_swap(t_lst **stack_a, t_lst **stack_b, int len);
