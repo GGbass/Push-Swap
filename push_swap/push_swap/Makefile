@@ -23,6 +23,7 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 NAME = push_swap
+
 #./src/sort1.c \
 
 SRC =	./src/a_to_b.c \
@@ -31,12 +32,13 @@ SRC =	./src/a_to_b.c \
 		./src/sort_tools.c \
 		./src/push_swap.c \
 		./src/free_stacks.c \
+		./src/testing.c \
 		./src/moves_a.c \
 		./src/moves_b.c \
 		./src/lstd_tools.c \
 		./src/params.c \
 		./src/main.c \
-		
+
 OBJ = $(SRC:.c=.o)
 
 #OBJB = $(SRCB:.c=.o)
