@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 11:54:47 by gongarci          #+#    #+#             */
-/*   Updated: 2024/08/21 15:29:12 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/20 22:53:37 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 	{
 		result = (str[i] - '0') + (result * 10);
 		if (result * negative > INT_MAX || result * negative < INT_MIN)
-			return (ft_printf("Error out of range\n"), 1);
+			return (-1);
 		i++;
 	}
 	return (result * negative);
@@ -60,7 +60,7 @@ long	ft_atol(const char *str)
 	{
 		result = (str[i] - '0') + (result * 10);
 		if (result * negative > INT_MAX || result * negative < INT_MIN)
-			return (ft_printf("Error out of range atol\n"), 1);
+			return (-1);
 		i++;
 	}
 	return (result * negative);

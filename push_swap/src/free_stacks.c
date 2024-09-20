@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:31:10 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/21 15:31:10 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/20 23:00:37 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	free_stacks(t_lst **stack_a, t_lst **stack_b)
 {
-	t_lst	*head;
+	t_lst	*tmp;
 
-	if (!(*stack_a) && !(*stack_b))
-		return ;
-	while (*stack_a)
+	if ((*stack_a))
 	{
-		head = (*stack_a)->next;
-		free(*stack_a);
-		*stack_a = head;
+		while ((*stack_a))
+		{
+			/* if ((*stack_a)->next != NULL) */
+			tmp = (*stack_a);
+			*stack_a = (*stack_a)->next;
+			free(tmp);
+		}
+		//free(*stack_a);
 	}
-	if (!(*stack_b))
-		return ;
 	while (*stack_b)
 	{
-		head = (*stack_b)->next;
+		tmp = (*stack_b)->next;
 		free(*stack_b);
-		*stack_b = head;
+		*stack_b = tmp;
 	}
-	ft_printf("stacks frees\n");
 }

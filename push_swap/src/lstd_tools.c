@@ -61,8 +61,6 @@ void	add(t_lst **lst, int value, int index)
 
 	tmp = *lst;
 	node = new_node(value);
-	// ft_printf("add value = %d\n", value);
-	// ft_printf("add index = %d\n\n", index);
 	node->index = index;
 	if (*lst == NULL)
 		*lst = node;
@@ -89,12 +87,11 @@ int	list_size(t_lst *stack)
 	return (i);
 }
 
-t_values	*get_tail(t_lst *stack)
+/* t_values	*get_tail(t_lst *stack)
 {
 	t_values	*values;
 	t_lst		*tmp;
 
-	/*delete this malloc and must be used  outside */
 	values = malloc(sizeof(t_values));
 	if (!values)
 		return (NULL);
@@ -107,4 +104,4 @@ t_values	*get_tail(t_lst *stack)
 		tmp = tmp->next;
 	}
 	return (values);
-}
+} */
