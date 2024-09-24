@@ -52,13 +52,13 @@ void	double_moves(t_moves *moves)
 {
 	moves->moves->rr = 0;
 	moves->moves->rrr = 0;
-	while(moves->moves->ra > 0 && moves->moves->rb > 0)
+	while (moves->moves->ra > 0 && moves->moves->rb > 0)
 	{
 		moves->moves->ra--;
 		moves->moves->rb--;
 		moves->moves->rr++;
 	}
-	while(moves->moves->rra > 0 && moves->moves->rrb > 0)
+	while (moves->moves->rra > 0 && moves->moves->rrb > 0)
 	{
 		moves->moves->rra--;
 		moves->moves->rrb--;

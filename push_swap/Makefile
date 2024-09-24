@@ -38,19 +38,21 @@ SRC =	./src/a_to_b.c \
 		./src/params.c \
 		./src/main.c \
 
+SRCB = ./srcb/checker.c \
+
 OBJ = $(SRC:.c=.o)
 
-#OBJB = $(SRCB:.c=.o)
+OBJB = $(SRCB:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra #-g3 -fsanitize=address,leak
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address,leak
 CC = gcc
+#-no-pie
 
 all: $(NAME) show_progreesss
 
 $(NAME): $(OBJ)
 	@make -s -C libft 
 	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
-#-no-pie
 	
 show_progreesss:
 		@for file in $(SRC); do \
@@ -58,33 +60,29 @@ show_progreesss:
 		done; \
 		echo "Compiled: 100%$(DEFAULT)"; \
 
-#bonus: 
-#$(NAMEB): $(OBJB)
-#	@make -C libft
-#	$(CC) $(CFLAGS) $(OBJB) -L libft -lft -o bonus
+bonus:
+$(NAMEB): $(OBJB)
+	@make -C libft
+	$(CC) $(CFLAGS) $(OBJB) -L libft -lft -o checker
 
 clean:
 	rm -f  $(NAME)
-#rm -f $(NAMEB)
-		@make fclean -s -C libft
-	
+	rm -f $(NAMEB)
+	@make fclean -s -C libft
+
 fclean: clean
 	 rm -f  $(OBJ)
-#rm -f $(OBJB)
+	rm -f $(OBJB)
 	@make  clean -s -C libft
 
 re: fclean all
-#rm -f $(NAME)
 
 #re_bonus: fclean bonus
 #	rm -f $(NAMEB)
 
 git:
 	git add .
-	git commit -m " current"
+	git commit -m "done"
 	git push
 
-.PHONY: clean fclean re all 
-
-# -C  aplica solo para ese directorio
-# -L para las librerias
+.PHONY: clean fclean re all

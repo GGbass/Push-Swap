@@ -55,7 +55,7 @@ t_lst		*new_node(int value);
 void		print_list(t_lst *stack);
 void		add(t_lst **lst, int value);
 void		free_stacks(t_lst **stack_a, t_lst **stack_b);
-void		ar_str_free(char **array);
+void		free_arrays(char **str, int *array);
 int			words(char *string);
 int			check_sign(char *string);
 int			list_size(t_lst *stack);
@@ -89,13 +89,14 @@ void		rrb_or_rb(t_moves *moves, int size, int index);
 void		rra_or_ra(t_moves *moves, int size, int index);
 void		double_moves(t_moves *moves);
 /*algorithm */
-int			push_swap(t_lst **stack_a, int len);
 void		sort_four_or_five(t_lst **stack_a, t_lst **stack_b);
-void		sort_three(t_lst **stack_a);
+void		sort_three(t_lst **a);
 void		to_top(t_lst **stack_a, t_lst *tmp, int i, t_moves *moves);
 void		cost(t_moves *moves, int i);
-void		moving_cheapest(t_lst **stack_a, t_lst **stack_b, t_moves *moves);
-void		do_moves(t_lst **stack_a, t_lst **stack_b, t_moves *moves, int push);
+void		moving_cheapest(t_lst **a, t_lst **b, t_moves *moves);
+void		do_moves(t_lst **a, t_lst **b, t_moves *moves, int push);
 void		sort1(t_lst **stack_a, t_lst **stack_b);
 void		sort2(t_lst **stack_a, t_lst **stack_b, t_moves *moves);
+/* checker bonus */
+
 #endif

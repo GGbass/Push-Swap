@@ -30,23 +30,24 @@ void	cost(t_moves *moves, int i)
 	}
 }
 
-void	moving_cheapest(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
+void	moving_cheapest(t_lst **a, t_lst **b, t_moves *moves)
 {
-	while(moves->cheapest->rr-- != 0)
-		rotate_s(stack_a, stack_b);
-	while(moves->cheapest->ra-- != 0)
-		rotate_a(stack_a);
-	while(moves->cheapest->rb-- != 0)
-		rotate_b(stack_b);
-	while(moves->cheapest->rrr-- != 0)
-		reverse_rr(stack_a, stack_b);
-	while(moves->cheapest->rra-- != 0)
-		reverse_rotate_a(stack_a);
-	while(moves->cheapest->rrb-- != 0)
-		reverse_rotate_b(stack_b);
-	while(moves->cheapest->pb-- != 0)
-		push_b(stack_b, stack_a);
+	while (moves->cheapest->rr-- != 0)
+		rotate_s(a, b);
+	while (moves->cheapest->ra-- != 0)
+		rotate_a(a);
+	while (moves->cheapest->rb-- != 0)
+		rotate_b(b);
+	while (moves->cheapest->rrr-- != 0)
+		reverse_rr(a, b);
+	while (moves->cheapest->rra-- != 0)
+		reverse_rotate_a(a);
+	while (moves->cheapest->rrb-- != 0)
+		reverse_rotate_b(b);
+	while (moves->cheapest->pb-- != 0)
+		push_b(b, a);
 }
+
 void	to_top(t_lst **stack_a, t_lst *tmp, int i, t_moves *moves)
 {
 	int		size;
@@ -59,14 +60,13 @@ void	to_top(t_lst **stack_a, t_lst *tmp, int i, t_moves *moves)
 	size = list_size(*stack_a);
 	rra_or_ra(moves, size, i);
 }
-/* b to a .c tool */
 
-void	do_moves(t_lst **stack_a, t_lst **stack_b, t_moves *moves, int push)
+void	do_moves(t_lst **a, t_lst **b, t_moves *moves, int push)
 {
 	while (moves->moves->rra-- != 0)
-		reverse_rotate_a(stack_a);
+		reverse_rotate_a(a);
 	while (moves->moves->ra-- != 0)
-		rotate_a(stack_a);
+		rotate_a(a);
 	if (push == 1)
-		push_a(stack_a, stack_b);
+		push_a(a, b);
 }

@@ -12,74 +12,59 @@
 
 #include "../include/push_swap.h"
 
-void	sort_three(t_lst **stack_a)
+void	sort_three(t_lst **a)
 {
-	if (((*stack_a) == get_lowest(*stack_a)) && (get_highest(*stack_a) == tail(*stack_a)))
+	if (((*a) == get_lowest(*a)) && (get_highest(*a) == (*a)->next))
 	{
-		reverse_rotate_a(stack_a);
-		swap_a(stack_a);
+		reverse_rotate_a(a);
+		swap_a(a);
 	}
-	else if (((*stack_a) == get_highest(*stack_a)) && (get_lowest(*stack_a) == tail(*stack_a)))
+	else if (((*a) == get_highest(*a)) && (get_lowest(*a) == tail(*a)))
 	{
-		swap_a(stack_a);
-		reverse_rotate_a(stack_a);
+		swap_a(a);
+		reverse_rotate_a(a);
 	}
-	else if ((*stack_a)->next == get_lowest(*stack_a))
+	else if ((*a)->next == get_lowest(*a))
 	{
-		if (get_highest(*stack_a) == *stack_a)
-			rotate_a(stack_a);
+		if (get_highest(*a) == *a)
+			rotate_a(a);
 		else
-			swap_a(stack_a);
+			swap_a(a);
 	}
 	else
-		reverse_rotate_a(stack_a);
-}
-
-static void	inspector(t_lst **stack_a, t_lst **stack_b)
-{
-	int	r;
-	int	rr;
-
-	r = count_r(*stack_a, get_lowest(*stack_a)->value);
-	rr = list_size(*stack_a) / 2;
-	if ((*stack_a) == get_lowest(*stack_a))
-			push_b(stack_b, stack_a);
-	else if (r < rr)
-	{
-		while (r > 0 && (*stack_a) != get_lowest(*stack_a))
-		{
-			rotate_a(stack_a);
-			r--;
-		}
-	}
-	else
-	{
-		while (rr > 0 && (*stack_a) != get_lowest(*stack_a))
-		{
-			reverse_rotate_a(stack_a);
-			rr--;
-		}
-	}
+		reverse_rotate_a(a);
 }
 
 void	sort_four_or_five(t_lst **stack_a, t_lst **stack_b)
 {
-	while (list_size(*stack_a) != 3 && !check_sort(*stack_a))
+	int	r;
+	int	rr;
+
+	while (list_size(*stack_a) != 3 && check_sort(*stack_a) != 1)
 	{
-		inspector(stack_a, stack_b);
+		r = count_r(*stack_a, get_lowest(*stack_a)->value);
+		rr = list_size(*stack_a) / 2;
+		if (list_size(*stack_a) % 2 != 0)
+			rr++;
+		if (r < rr)
+		{
+			while ((*stack_a) != get_lowest(*stack_a))
+				rotate_a(stack_a);
+		}
+		else
+		{
+			while ((*stack_a) != get_lowest(*stack_a))
+				reverse_rotate_a(stack_a);
+		}
 		push_b(stack_b, stack_a);
 	}
-	if (!check_sort(*stack_a) && list_size(*stack_a) == 3)
+	if (check_sort(*stack_a) != 1 && list_size(*stack_a) == 3)
 		sort_three(stack_a);
 	while (*stack_b != NULL)
-	{
-		if (get_lowest(*stack_b)->next != NULL)
-			swap_b(stack_b);
 		push_a(stack_a, stack_b);
-	}
 }
 
-int	push_swap(t_lst **stack_a, int len)
+static int	push_swap(t_lst **stack_a, int len)
 {
 	int		sort;
 	t_lst	*stack_b;
@@ -87,7 +72,7 @@ int	push_swap(t_lst **stack_a, int len)
 	stack_b = NULL;
 	sort = check_sort(*stack_a);
 	if (sort == 1)
-		return (free_stacks(stack_a, NULL), 0);
+		return (free_stacks(stack_a, &stack_b), 0);
 	else if (sort == 0 && len == 2)
 		swap_a(stack_a);
 	else if (sort == 0 && len == 3)

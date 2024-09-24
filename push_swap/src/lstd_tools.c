@@ -19,7 +19,7 @@ void	print_list(t_lst *stack_a)
 	current = stack_a;
 	if (!current)
 		return ;
-	while(current != NULL)
+	while (current != NULL)
 	{
 		ft_printf("%d\n", current->value);
 		current = current->next;
@@ -63,7 +63,7 @@ int	list_size(t_lst *stack)
 
 	i = 0;
 	tmp = stack;
-	while(tmp)
+	while (tmp)
 	{
 		i++;
 		tmp = tmp->next;

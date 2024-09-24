@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:48:46 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/24 02:16:08 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/24 19:59:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	rotate_b(t_lst **stack_b)
 void	push_b(t_lst **stack_b, t_lst **stack_a)
 {
 	t_lst	*node;
-	
+
 	if (!*stack_a)
 		return ;
 	node = (*stack_a)->next;

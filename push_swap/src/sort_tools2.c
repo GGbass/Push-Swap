@@ -12,8 +12,6 @@
 
 #include "../include/push_swap.h"
 
-/* count_R is a counter of how many  rev rotations an stack needs to find the value sent */
-
 int	count_r(t_lst *stack, int value)
 {
 	int		counter;

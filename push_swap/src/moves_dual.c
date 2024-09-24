@@ -12,7 +12,6 @@
 
 #include "../include/push_swap.h"
 
-
 void	reverse_rr(t_lst **stack_a, t_lst **stack_b)
 {
 	reverse_rotate(stack_a);

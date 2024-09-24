@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:00:03 by gongarci          #+#    #+#             */
-/*   Updated: 2024/09/24 01:53:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/24 19:59:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	rotate(t_lst **stack)
 	}
 	else
 	{
-		while(tmp->next != NULL)
+		while (tmp->next != NULL)
 			tmp = tmp->next;
 		tmp->next = head;
 		*stack = (*stack)->next;

@@ -70,18 +70,15 @@ static int	argv_checker(char **argv, int **numbers, int *len)
 		return (-1);
 	while (argv[i] != NULL)
 	{
-		if (check_sign(argv[i]) == -1 || (ft_atol(argv[i]) > INT_MAX 
-			|| ft_atol(argv[i]) < INT_MIN))
+		if (check_sign(argv[i]) == -1 || (ft_atol(argv[i]) > INT_MAX
+				|| ft_atol(argv[i]) < INT_MIN))
 		{
-			free(argv[i]);
-			free(argv);
-			return (free(*numbers), -1);
+			return (free_arrays(argv, *numbers), -1);
 		}
 		(*numbers)[i] = ft_atol(argv[i]);
-		free(argv[i]);
 		i++;
 	}
-	free(argv);
+	free_arrays(argv, NULL);
 	if (ft_isduplicate(numbers, i) == -1)
 		return (-1);
 	return (0);
@@ -110,10 +107,7 @@ int	array_value(char **argv, int **numbers)
 	free(aux);
 	if (argv_checker(aux2, numbers, &len) == -1)
 	{
-		//ar_str_free(aux2);
-		//free(*numbers);
 		return (-1);
 	}
-	//ar_str_free(aux2);
 	return (len);
 }
