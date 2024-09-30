@@ -77,18 +77,19 @@ static int	push_swap(t_lst **stack_a, int len)
 		swap_a(stack_a);
 	else if (sort == 0 && len == 3)
 		sort_three(stack_a);
-	else if (sort == 0 && len >= 4 && len <= 5)
+	else if (sort == 0 && len >= 4 && len <= 7)
 		sort_four_or_five(stack_a, &stack_b);
 	else
 		sort1(stack_a, &stack_b);
-	if(check_sort(*stack_a) == 0)
-		ft_printf("why it's not sorted\n");
-	else
-		ft_printf("sorted\n");
 	free_stacks(stack_a, &stack_b);
 	return (1);
 }
 
+/* 	if(check_sort(*stack_a) == 0)
+		ft_printf("why it's not sorted\n");
+	else
+		ft_printf("sorted\n");
+	print_list(*stack_a); */
 int	main(int argc, char **argv)
 {
 	t_lst	*stack_a;

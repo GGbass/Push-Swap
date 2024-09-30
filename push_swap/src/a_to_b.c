@@ -12,30 +12,28 @@
 
 #include "../include/push_swap.h"
 
-static int	search_in_b(t_lst **stack_b, int a_value)
+int	search_in(t_lst **stack_b, int value, int increase, int size)
 {
 	t_lst	*tmp;
 	int		i;
-	int		size;
 	int		flag;
 
 	i = 0;
 	flag = 0;
 	tmp = *stack_b;
-	size = list_size(*stack_b);
 	while (flag == 0 || tmp != NULL)
 	{
 		i = 0;
 		tmp = *stack_b;
-		a_value--;
+		value += increase;
 		while (i++ < size)
 		{
-			if (tmp->value == a_value)
+			if (tmp->value == value)
 				flag = 1;
 			tmp = tmp->next;
 		}
 	}
-	return (a_value);
+	return (value);
 }
 
 static void	new_value_b(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
@@ -46,11 +44,11 @@ static void	new_value_b(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 
 	moves->moves->rb = 0;
 	moves->moves->rrb = 0;
-	search = search_in_b(stack_b, (*stack_a)->value);
+	size = list_size(*stack_b);
+	search = search_in(stack_b, (*stack_a)->value, -1, size);
 	if ((*stack_b)->value == search)
 		return ;
 	index = count_r(*stack_b, search);
-	size = list_size(*stack_b);
 	rrb_or_rb(moves, size, index);
 }
 
@@ -69,13 +67,11 @@ static void	max_moves_in_b(t_lst **stack_b, t_moves *moves)
 static void	move_to_b(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 {
 	t_lst	*tmp;
-	int		size;
 	int		i;
 
-	size = list_size(*stack_a);
 	i = 0;
 	tmp = *stack_a;
-	while (i++ < size)
+	while (i++ < list_size(*stack_a))
 	{
 		to_top(stack_a, tmp, i - 1, moves);
 		if (tmp->value > get_highest(*stack_b)->value

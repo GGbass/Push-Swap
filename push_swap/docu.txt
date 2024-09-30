@@ -1,0 +1,21 @@
+
+Stack_A to  Stack_B
+to_top : it'll move certain number to the head of the list
+
+if (tmp number it'll be the new greater or the new lower number
+	on stack_b than we find the  highest on B)
+
+else
+{ NEW value in B
+	make a search about the new approppate number in between
+	search in b by decrease 
+}
+
+
+check for double_moves from moves added in to_top in A and others in B
+
+cost- compared the total ammount in every 
+
+
+for every nummber it goes throw the all stack in both directions
+

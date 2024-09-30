@@ -12,32 +12,6 @@
 
 #include "../include/push_swap.h"
 
-static int	search_in_a(t_lst **stack_a, int b_value)
-{
-	t_lst	*tmp;
-	int		i;
-	int		size;
-	int		flag;
-
-	i = 0;
-	flag = 0;
-	tmp = *stack_a;
-	size = list_size(*stack_a);
-	while (flag == 0 || tmp != NULL)
-	{
-		i = 0;
-		tmp = *stack_a;
-		b_value++;
-		while (i++ < size)
-		{
-			if (tmp->value == b_value)
-				flag = 1;
-			tmp = tmp->next;
-		}
-	}
-	return (b_value);
-}
-
 static void	new_value_a(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 {
 	int	index;
@@ -47,7 +21,7 @@ static void	new_value_a(t_lst **stack_a, t_lst **stack_b, t_moves *moves)
 	moves->moves->ra = 0;
 	moves->moves->rra = 0;
 	size = list_size(*stack_a);
-	search = search_in_a(stack_a, (*stack_b)->value);
+	search = search_in(stack_a, (*stack_b)->value, 1 , size);
 	index = count_r(*stack_a, search);
 	if ((*stack_a)->value != search)
 	{

@@ -86,6 +86,7 @@ void		to_top(t_lst **stack_a, t_lst *tmp, int i, t_moves *moves);
 void		cost(t_moves *moves, int i);
 void		moving_cheapest(t_lst **a, t_lst **b, t_moves *moves);
 void		do_moves(t_lst **a, t_lst **b, t_moves *moves, int push);
+int	search_in(t_lst **stack_b, int a_value, int increase, int size);
 void		sort1(t_lst **stack_a, t_lst **stack_b);
 void		sort2(t_lst **stack_a, t_lst **stack_b, t_moves *moves);
 /* checker bonus */
