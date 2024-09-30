@@ -24,10 +24,12 @@ void	free_arrays(char **str, int *array)
 		free(array);
 }
 
-void	free_stacks(t_lst **stack_a, t_lst **stack_b)
+void	free_stacks(t_lst **stack_a, t_lst **stack_b, char *line)
 {
 	t_lst	*tmp;
 
+	if (line)
+		free(line);
 	if ((*stack_a))
 	{
 		while ((*stack_a))

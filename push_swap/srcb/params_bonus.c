@@ -49,6 +49,8 @@ static int	check_sign(char *string)
 		if (string[i] == '-' || string[i] == '+')
 		{
 			sign++;
+			if (i > 0 && ft_isdigit(string[i - 1]))
+				return (-1);
 			if (!ft_isdigit(string[i + 1]) || sign > 1)
 				return (-1);
 		}

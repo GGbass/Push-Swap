@@ -10,34 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/checker.h"
 
-static void	check_read(char *line, t_lst **a, t_lst **b)
+static int	check_read(char *line, t_lst **a, t_lst **b)
 {
-	if (!line)
-		return ;
 	if (ft_strncmp(line, "sa\n", 3) == 0)
-		swap_a(a);
+		return (swap_a(a), 1);
 	else if (ft_strncmp(line, "sb\n", 3) == 0)
-		swap_b(b);
+		return (swap_b(b), 1);
 	else if (ft_strncmp(line, "ss\n", 3) == 0)
-		swap_s(a, b);
+		return (swap_s(a, b), 1);
 	else if (ft_strncmp(line, "pa\n", 3) == 0)
-		push_a(a, b);
+		return (push_a(a, b), 1);
 	else if (ft_strncmp(line, "pb\n", 3) == 0)
-		push_b(a, b);
+		return (push_b(b, a), 1);
 	else if (ft_strncmp(line, "ra\n", 3) == 0)
-		rotate_a(a);
+		return (rotate_a(a), 1);
 	else if (ft_strncmp(line, "rb\n", 3) == 0)
-		rotate_b(b);
+		return (rotate_b(b), 1);
 	else if (ft_strncmp(line, "rr\n", 3) == 0)
-		rotate_s(a, b);
+		return (rotate_s(a, b), 1);
 	else if (ft_strncmp(line, "rra\n", 4) == 0)
-		reverse_rotate_a(a);
+		return (reverse_rotate_a(a), 1);
 	else if (ft_strncmp(line, "rrb\n", 4) == 0)
-		reverse_rotate_b(b);
+		return (reverse_rotate_b(b), 1);
 	else if (ft_strncmp(line, "rrr\n", 4) == 0)
-		reverse_rr(a, b);
+		return (reverse_rr(a, b), 1);
+	else
+		return (-1);
 }
 
 static void	get_moves(t_lst **stack_a)
@@ -51,21 +51,20 @@ static void	get_moves(t_lst **stack_a)
 	{
 		line = get_next_line(0);
 		if (!line)
-			break;
-		check_read(line, stack_a, &stack_b);
+			break ;
+		if (!(check_read(line, stack_a, &stack_b)))
+			return (free_stacks(stack_a, &stack_b, line));
 		free(line);
 	}
-	if (line)
-		free(line);
 	if (check_sort(*stack_a) && stack_b == NULL)
 	{
 		ft_printf("OK\n");
-		free_stacks(stack_a, &stack_b);
+		free_stacks(stack_a, &stack_b, NULL);
 	}
 	else
 	{
 		ft_printf("KO\n");
-		free_stacks(stack_a, &stack_b);
+		free_stacks(stack_a, &stack_b, NULL);
 	}
 }
 

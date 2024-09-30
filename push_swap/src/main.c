@@ -43,7 +43,7 @@ void	sort_four_or_five(t_lst **stack_a, t_lst **stack_b)
 	while (list_size(*stack_a) != 3 && check_sort(*stack_a) != 1)
 	{
 		r = count_r(*stack_a, get_lowest(*stack_a)->value);
-		rr = list_size(*stack_a) / 2;
+		rr = list_size(*stack_a) - r;
 		if (list_size(*stack_a) % 2 != 0)
 			rr++;
 		if (r < rr)
@@ -81,10 +81,10 @@ static int	push_swap(t_lst **stack_a, int len)
 		sort_four_or_five(stack_a, &stack_b);
 	else
 		sort1(stack_a, &stack_b);
-/* 	if (check_sort(*stack_a) == 0)
+	if(check_sort(*stack_a) == 0)
 		ft_printf("why it's not sorted\n");
 	else
-		ft_printf("sorted\n"); */
+		ft_printf("sorted\n");
 	free_stacks(stack_a, &stack_b);
 	return (1);
 }

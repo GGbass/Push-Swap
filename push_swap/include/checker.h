@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include "../libft/libft.h"
 
@@ -21,12 +21,11 @@ typedef struct s_lst
 	struct s_lst	*next;
 }				t_lst;
 
-
 void	print_list(t_lst *stack_a);
 void	add(t_lst **lst, int value);
 int		list_size(t_lst *stack);
 int		words(char *string);
-void	free_stacks(t_lst **stack_a, t_lst **stack_b);
+void	free_stacks(t_lst **stack_a, t_lst **stack_b, char *line);
 void	free_arrays(char **str, int *array);
 int		array_value(char **argv, int **numbers);
 int		check_sort(t_lst *stack_a);

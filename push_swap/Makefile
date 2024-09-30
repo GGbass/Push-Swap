@@ -81,6 +81,7 @@ show_progress2:
 
 clean:
 	rm -f  $(NAME)
+	rm -f checker
 	rm -f $(NAMEB)
 	@make fclean -s -C libft
 

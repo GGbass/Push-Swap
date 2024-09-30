@@ -27,13 +27,11 @@ void	swap(t_lst **stack)
 void	swap_a(t_lst **stack_a)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
 }
 
 void	swap_b(t_lst **stack_b)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
 }
 
 void	rotate(t_lst **stack)
@@ -47,8 +45,7 @@ void	rotate(t_lst **stack)
 	tmp = head;
 	if (tmp->next->next == NULL)
 	{
-		head->next = NULL;
-		tmp->next = head;
+		swap(stack);
 		return ;
 	}
 	else
@@ -71,5 +68,4 @@ void	push_a(t_lst **stack_a, t_lst **stack_b)
 	(*stack_b)->next = *stack_a;
 	*stack_a = *stack_b;
 	*stack_b = node;
-	ft_printf("pa\n");
 }

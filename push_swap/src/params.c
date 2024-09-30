@@ -49,6 +49,8 @@ static int	check_sign(char *string)
 		if (string[i] == '-' || string[i] == '+')
 		{
 			sign++;
+			if (i > 0 && ft_isdigit(string[i - 1]))
+				return (-1);
 			if (!ft_isdigit(string[i + 1]) || sign > 1)
 				return (-1);
 		}
@@ -73,7 +75,7 @@ static int	argv_checker(char **argv, int **numbers, int *len)
 		if (check_sign(argv[i]) == -1 || (ft_atol(argv[i]) > INT_MAX
 				|| ft_atol(argv[i]) < INT_MIN))
 		{
-			return (free_arrays(argv, *numbers), -1);
+			return (free_arrays(argv, NULL), -1);
 		}
 		(*numbers)[i] = ft_atol(argv[i]);
 		i++;

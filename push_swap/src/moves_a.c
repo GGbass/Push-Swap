@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:00:03 by gongarci          #+#    #+#             */
-/*   Updated: 2024/09/24 19:59:26 by marvin           ###   ########.fr       */
+/*   Updated: 2024/09/30 20:18:44 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ void	rotate(t_lst **stack)
 	tmp = head;
 	if (tmp->next->next == NULL)
 	{
-		head->next = NULL;
-		tmp->next = head;
+		swap(stack);
 		return ;
 	}
 	else
 	{
-		while (tmp->next != NULL)
-			tmp = tmp->next;
+		tmp = tail(tmp);
 		tmp->next = head;
 		*stack = (*stack)->next;
 		head->next = NULL;

@@ -34,19 +34,16 @@ void	reverse_rotate(t_lst **stack)
 void	reverse_rotate_a(t_lst **stack_a)
 {
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
 }
 
 void	reverse_rotate_b(t_lst **stack_b)
 {
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
 }
 
 void	rotate_b(t_lst **stack_b)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
 }
 
 void	push_b(t_lst **stack_b, t_lst **stack_a)
@@ -59,5 +56,4 @@ void	push_b(t_lst **stack_b, t_lst **stack_a)
 	(*stack_a)->next = *stack_b;
 	*stack_b = *stack_a;
 	*stack_a = node;
-	ft_printf("pb\n");
 }
