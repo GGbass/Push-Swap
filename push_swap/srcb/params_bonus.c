@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   params.c                                           :+:      :+:    :+:   */
+/*   params_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 21:01:51 by marvin            #+#    #+#             */
-/*   Updated: 2024/07/03 21:01:51 by marvin           ###   ########.fr       */
+/*   Created: 2024/09/25 19:29:16 by marvin            #+#    #+#             */
+/*   Updated: 2024/09/25 19:29:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/checker.h"
 
 static int	ft_isduplicate(int **numbers, int len)
 {

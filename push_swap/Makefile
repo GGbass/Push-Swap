@@ -24,6 +24,8 @@ WHITE = \033[0;97m
 
 NAME = push_swap
 
+NAMEB = bonus
+
 SRC =	./src/a_to_b.c \
 		./src/ab_tools.c \
 		./src/b_to_a.c \
@@ -38,7 +40,13 @@ SRC =	./src/a_to_b.c \
 		./src/params.c \
 		./src/main.c \
 
-SRCB = ./srcb/checker.c \
+SRCB =	./srcb/free_stacks_bonus.c \
+		./srcb/moves_dual_bonus.c \
+		./srcb/moves_b_bonus.c \
+		./srcb/moves_a_bonus.c \
+		./srcb/lstd_tools_bonus.c \
+		./srcb/params_bonus.c \
+		./srcb/checker.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -48,22 +56,28 @@ CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address,leak
 CC = gcc
 #-no-pie
 
-all: $(NAME) show_progreesss
+all: $(NAME) show_progress
 
 $(NAME): $(OBJ)
 	@make -s -C libft 
 	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
 	
-show_progreesss:
+show_progress:
 		@for file in $(SRC); do \
 			echo "$(GREEN)Compiling $$file "; \
 		done; \
 		echo "Compiled: 100%$(DEFAULT)"; \
 
 bonus:
-$(NAMEB): $(OBJB)
-	@make -C libft
+$(NAMEB): $(OBJB) show_progress2
+	@make -s -C libft
 	$(CC) $(CFLAGS) $(OBJB) -L libft -lft -o checker
+
+show_progress2:
+		@for file in $(SRCB); do \
+			echo "$(GREEN)Compiling $$file "; \
+		done; \
+		echo "Compiled: 100%$(DEFAULT)"; \
 
 clean:
 	rm -f  $(NAME)
@@ -71,13 +85,13 @@ clean:
 	@make fclean -s -C libft
 
 fclean: clean
-	 rm -f  $(OBJ)
+	rm -f  $(OBJ)
 	rm -f $(OBJB)
 	@make  clean -s -C libft
 
 re: fclean all
 
-#re_bonus: fclean bonus
+re_bonus: fclean bonus
 #	rm -f $(NAMEB)
 
 git:

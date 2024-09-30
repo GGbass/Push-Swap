@@ -81,10 +81,10 @@ static int	push_swap(t_lst **stack_a, int len)
 		sort_four_or_five(stack_a, &stack_b);
 	else
 		sort1(stack_a, &stack_b);
-	if (check_sort(*stack_a) == 0)
+/* 	if (check_sort(*stack_a) == 0)
 		ft_printf("why it's not sorted\n");
 	else
-		ft_printf("sorted\n");
+		ft_printf("sorted\n"); */
 	free_stacks(stack_a, &stack_b);
 	return (1);
 }

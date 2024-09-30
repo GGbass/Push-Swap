@@ -12,35 +12,35 @@
 
 #include "../include/push_swap.h"
 
-void	check_read(char *line, t_lst **a, t_lst **b)
+static void	check_read(char *line, t_lst **a, t_lst **b)
 {
 	if (!line)
 		return ;
 	if (ft_strncmp(line, "sa\n", 3) == 0)
-		swap_a(&a);
+		swap_a(a);
 	else if (ft_strncmp(line, "sb\n", 3) == 0)
-		swap_b(&b);
+		swap_b(b);
 	else if (ft_strncmp(line, "ss\n", 3) == 0)
-		swap_s(&a, &b);
+		swap_s(a, b);
 	else if (ft_strncmp(line, "pa\n", 3) == 0)
-		push_a(&a, &b);
+		push_a(a, b);
 	else if (ft_strncmp(line, "pb\n", 3) == 0)
-		push_b(&a, &b);
+		push_b(a, b);
 	else if (ft_strncmp(line, "ra\n", 3) == 0)
-		rotate_a(&a);
+		rotate_a(a);
 	else if (ft_strncmp(line, "rb\n", 3) == 0)
-		rotate_b(&b);
+		rotate_b(b);
 	else if (ft_strncmp(line, "rr\n", 3) == 0)
-		rotate_s(&a, &b);
+		rotate_s(a, b);
 	else if (ft_strncmp(line, "rra\n", 4) == 0)
-		reverse_rotate_a(&a);
+		reverse_rotate_a(a);
 	else if (ft_strncmp(line, "rrb\n", 4) == 0)
-		reverse_rotate_b(&b);
+		reverse_rotate_b(b);
 	else if (ft_strncmp(line, "rrr\n", 4) == 0)
-		reverse_rr(&a, &b);
+		reverse_rr(a, b);
 }
 
-void	get_moves(t_lst **stack_a)
+static void	get_moves(t_lst **stack_a)
 {
 	t_lst	*stack_b;
 	char	*line;
@@ -52,13 +52,21 @@ void	get_moves(t_lst **stack_a)
 		line = get_next_line(0);
 		if (!line)
 			break;
-		check_read(line);
+		check_read(line, stack_a, &stack_b);
 		free(line);
 	}
+	if (line)
+		free(line);
 	if (check_sort(*stack_a) && stack_b == NULL)
+	{
 		ft_printf("OK\n");
+		free_stacks(stack_a, &stack_b);
+	}
 	else
+	{
 		ft_printf("KO\n");
+		free_stacks(stack_a, &stack_b);
+	}
 }
 
 int	main(int argc, char **argv)

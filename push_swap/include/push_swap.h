@@ -43,13 +43,6 @@ typedef struct s_mov
 	int	ss;
 }	t_mov;
 
-typedef struct s_values
-{
-	t_lst		*tail;
-	t_lst		*mid;
-	t_lst		*prev;
-}			t_values;
-
 /*linked list tools*/
 t_lst		*new_node(int value);
 void		print_list(t_lst *stack);
@@ -57,7 +50,6 @@ void		add(t_lst **lst, int value);
 void		free_stacks(t_lst **stack_a, t_lst **stack_b);
 void		free_arrays(char **str, int *array);
 int			words(char *string);
-int			check_sign(char *string);
 int			list_size(t_lst *stack);
 /*	check arguments	*/
 int			array_value(char **argv, int **numbers);
@@ -80,7 +72,6 @@ void		reverse_rr(t_lst **stack_a, t_lst **stack_b);
 t_lst		*get_highest(t_lst *stack);
 t_lst		*second_highest(t_lst *stack);
 t_lst		*get_lowest(t_lst *stack);
-t_values	*get_tail(t_lst *stack);
 t_lst		*tail(t_lst *stack);
 int			check_sort(t_lst *stack_a);
 void		sort_three(t_lst **stack_a);
